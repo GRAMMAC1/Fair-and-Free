@@ -2,8 +2,6 @@
 
 Every 60 seconds, humanity creates 500 hours of YouTube content, 695,000 Instagram stories, and 2.1 million TikTok clips. Yet 92% of creators earn less than $10k a year. Where does the money go?
 
-## The Silent Tax on Your Genius
-
 - **YouTube** pockets 45% of every ad dollar while recommending cat videos over your documentary.  
 - **Spotify** pays artists $0.003 per stream but charges $10/month to listeners.  
 - **Instagram** sells your aesthetic to advertisers but bans you for "algorithmic nudity" if your art challenges norms.  
