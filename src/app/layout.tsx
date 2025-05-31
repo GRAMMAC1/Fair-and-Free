@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Image from "next/image";
+import Link from "next/link";
+
+import Nav from "./nav";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,6 +32,56 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header
+          className={
+            "flex w-full h-[108px] justify-center text-[var(--normal-text-color)] bg-[var(--bg-header-color)] backdrop-blur-[3.8px]"
+          }
+        >
+          <div className={"w-[1440px] flex justify-between items-center"}>
+            <Image
+              className={"mt-1"}
+              src={"/images/header-logo.svg"}
+              width={100}
+              height={104}
+              alt={"fair3 logo"}
+            />
+            <Nav />
+            <div className={"flex gap-[24px] items-center"}>
+              <Link href={"https://x.com/fair3fund"} target="_blank">
+                <Image
+                  src={"/images/X.svg"}
+                  width={20}
+                  height={18}
+                  alt={"X Link"}
+                />
+              </Link>
+              <Link href={"https://t.me/fair3fund"} target="_blank">
+                <Image
+                  src={"/images/telegram.svg"}
+                  width={20}
+                  height={18}
+                  alt={"telegram CN Link"}
+                />
+              </Link>
+              <Link href={"https://t.me/fair3fund_en"} target="_blank">
+                <Image
+                  src={"/images/telegram.svg"}
+                  width={20}
+                  height={18}
+                  alt={"telegram EN Link"}
+                />
+              </Link>
+              <Link href={"https://fair3fund.org"} target="_blank">
+                <Image
+                  src={"/images/github.svg"}
+                  width={22}
+                  height={22}
+                  alt={"github Link"}
+                />
+              </Link>
+            </div>
+          </div>
+        </header>
         {children}
       </body>
     </html>
