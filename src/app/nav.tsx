@@ -75,7 +75,7 @@ export default function Nav() {
             </Link>
           </NavigationMenuTrigger>
           <NavigationMenuContent
-            style={{ background: "var(--main-color)" }}
+            style={{ background: "var(--main-color)", zIndex: 2 }}
             className="flex flex-col min-w-[200px] backdrop-blur-xs p-2 border rounded-md shadow-md"
           >
             {item.children?.map((child, index) => (

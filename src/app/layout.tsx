@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
-import Link from "next/link";
 
 import Nav from "./nav";
+import { ContactLink } from "@/shared/contact-link";
 
 import "./globals.css";
 
@@ -30,11 +30,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.3]"
+          style={{
+            backgroundImage: `url('/images/background.svg')`,
+            zIndex: -10,
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(to bottom, white 65%,transparent)`,
+            zIndex: -5,
+          }}
+        />
         <header
           className={
-            "flex w-full h-[108px] justify-center text-[var(--normal-text-color)] bg-[var(--bg-header-color)] backdrop-blur-[3.8px]"
+            "flex relative w-full h-[108px] justify-center text-[var(--normal-text-color)] bg-[var(--bg-header-color)] backdrop-blur-[3.8px] z-50"
           }
         >
           <div className={"w-[1440px] flex justify-between items-center"}>
@@ -46,43 +60,52 @@ export default function RootLayout({
               alt={"fair3 logo"}
             />
             <Nav />
-            <div className={"flex gap-[24px] items-center"}>
-              <Link href={"https://x.com/fair3fund"} target="_blank">
-                <Image
-                  src={"/images/X.svg"}
-                  width={20}
-                  height={18}
-                  alt={"X Link"}
-                />
-              </Link>
-              <Link href={"https://t.me/fair3fund"} target="_blank">
-                <Image
-                  src={"/images/telegram.svg"}
-                  width={20}
-                  height={18}
-                  alt={"telegram CN Link"}
-                />
-              </Link>
-              <Link href={"https://t.me/fair3fund_en"} target="_blank">
-                <Image
-                  src={"/images/telegram.svg"}
-                  width={20}
-                  height={18}
-                  alt={"telegram EN Link"}
-                />
-              </Link>
-              <Link href={"https://fair3fund.org"} target="_blank">
-                <Image
-                  src={"/images/github.svg"}
-                  width={22}
-                  height={22}
-                  alt={"github Link"}
-                />
-              </Link>
-            </div>
+            <ContactLink />
           </div>
         </header>
         {children}
+        <footer className="flex justify-center mt-[110px] pb-11">
+          <div className="flex 2xl:w-[1440px] justify-between items-end text-[#353535] text-[15px] font-normal">
+            <div>
+              <h3 className={"font-[Konkhmer Sleokchher] text-[48px]"}>
+                FAIR3
+              </h3>
+              <div className={"mt-8"}>
+                © 2025 FAIR3 Community. All rights reserved.
+              </div>
+            </div>
+            <div>
+              <h3
+                className={"font-bold font-[Kodchasan] text-[20px] text-[#000]"}
+              >
+                Contact Us
+              </h3>
+              <div className="flex mt-7">
+                <Image
+                  src={"/images/telegram.svg"}
+                  width={20}
+                  height={18}
+                  alt={"Telegram CN Link"}
+                />
+                <span className={"ml-2.5 text-[#000]"}>
+                  @ElaraFair3Community
+                </span>
+              </div>
+              <div className="flex mt-7">
+                <Image
+                  src={"/images/telegram.svg"}
+                  width={20}
+                  height={18}
+                  alt={"Telegram CN Link"}
+                />
+                <span className={"ml-2.5 text-[#000]"}>
+                  @KieranFair3Community
+                </span>
+              </div>
+              <ContactLink className={"mt-7"} />
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
