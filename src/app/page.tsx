@@ -1,103 +1,324 @@
+"use client";
+
 import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+import { cn } from "@/lib/utils";
+import { Vanta } from "@/shared/vanta";
+import { titleStyle, normalTextStyle } from "@/shared/styles";
+import { Button } from "@/components/ui/button";
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+declare global {
+  interface Window {
+    VANTA: any;
+  }
+}
+
+const iconList = [
+  {
+    title: "13",
+    content: "Foundation Members",
+    image: {
+      src: "/images/home-icon1.svg",
+      width: 42.5,
+      height: 47.5,
+    },
+  },
+  {
+    title: "2.5M+",
+    content: "Foundation Balance",
+    image: {
+      src: "/images/home-icon2.svg",
+      width: 50,
+      height: 45,
+    },
+  },
+  {
+    title: "5",
+    content: "Grants Projects",
+    image: {
+      src: "/images/home-icon3.svg",
+      width: 50,
+      height: 40,
+    },
+  },
+  {
+    title: "1.2M+",
+    content: "Airdorp FAIR3",
+    image: {
+      src: "/images/home-icon4.svg",
+      width: 50,
+      height: 50,
+    },
+  },
+] as const;
+
+const companyIconList = [
+  {
+    src: "/images/bscscan.svg",
+    alt: "bscscan",
+    name: "Bscscan",
+  },
+  {
+    src: "/images/cornmarketcap.svg",
+    alt: "cornmarketcap",
+    name: "Coinmarketcap",
+  },
+  {
+    src: "/images/coingecko.svg",
+    alt: "coingecko",
+    name: "Coingecko",
+  },
+] as const;
+
+const blockChainList = [
+  {
+    src: "/images/alpha.png",
+    alt: "Binance Alpha",
+    name: "Binance Alpha",
+  },
+  {
+    src: "/images/alpha.png",
+    alt: "Binance Alpha",
+    name: "Binance Alpha",
+  },
+  {
+    src: "/images/alpha.png",
+    alt: "Binance Alpha",
+    name: "Binance Alpha",
+  },
+  {
+    src: "/images/alpha.png",
+    alt: "Binance Alpha",
+    name: "Binance Alpha",
+  },
+  {
+    src: "/images/alpha.png",
+    alt: "Binance Alpha",
+    name: "Binance Alpha",
+  },
+  {
+    src: "/images/alpha.png",
+    alt: "Binance Alpha",
+    name: "Binance Alpha",
+  },
+  {
+    src: "/images/alpha.png",
+    alt: "Binance Alpha",
+    name: "Binance Alpha",
+  },
+  {
+    src: "/images/alpha.png",
+    alt: "Binance Alpha",
+    name: "Binance Alpha",
+  },
+] as const;
+
+export default function Home() {
+  const handleVantaReady = () => {
+    if (window.VANTA)
+      window.VANTA.GLOBE({
+        el: "#vanta-container",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: "#000000",
+        color2: "#000000",
+        size: 1.4,
+        backgroundColor: "#ffffff",
+      });
+  };
+
+  return (
+    <>
+      <Vanta onReady={handleVantaReady} />
+      <div className={"flex flex-col items-center text-[#353535]"}>
+        <div
+          id="vanta-container"
+          className="w-full h-[855px] bg-white flex justify-center"
+        >
+          <div className={"2xl:w-[1440px]"}>
+            <h1
+              className={
+                "mt-16 font-normal font-[Konkhmer Sleokchher] text-[58px]"
+              }
+            >
+              <span className="mr-2 text-[var(--main-color)]">FAIR</span>
+              <span className="mr-2 text-black">AND</span>
+              <span className="text-[var(--main-color)]">FREE</span>
+            </h1>
+            <h2
+              className={
+                "max-w-2xl mt-4 font-bold font-[Kodchasan] text-[40px]"
+              }
+            >
+              Back Builders. Defend Justice. Own the Future.
+            </h2>
+            <p className={"mt-7 text-black font-normal text-[15px]"}>
+              BNB Chain CA:0x6952c5408b9822295ba4a7e694d0c5ffdb8fe320
+            </p>
+            <Button
+              className={
+                "mt-9 font-[Kodchasan] text-[20px] font-bold text-black cursor-pointer"
+              }
+              style={{
+                backdropFilter: "blur(4px)",
+              }}
+            >
+              <span>BUY $FAIR3 ON BSC</span>
+            </Button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <h1 className={cn(titleStyle({ font: "kodchasan" }), "mt-32")}>
+          The FAIR3 Foundation
+        </h1>
+        <h2 className={cn(normalTextStyle(), "mt-1.5")}>
+          Multisig Address：0x948d680B978874f2A57b4a904633084414282eA7
+        </h2>
+        <div className="2xl:w-[1440px] mt-20">
+          <h1 className={titleStyle({ font: "kodchasan" })}>
+            Introducing the Fair3 Foundation: A Two-Pillar Approach
+          </h1>
+          <p className={cn(normalTextStyle(), "mt-5")}>
+            The Fair3 Foundation is built on a vision of fairness, transparency,
+            and empowerment. We believe that both technology and social justice
+            need to evolve hand-in-hand, which is why we’ve established a
+            dual-pillar approach to drive positive change in these critical
+            areas.
+          </p>
+          <p className={cn(normalTextStyle(), "mt-3")}>
+            By focusing on both social justice and technological innovation, the
+            Fair3 Foundation creates a dynamic ecosystem where every individual
+            and every idea has a platform to thrive.
+          </p>
+          <div className="w-full flex flex-wrap gap-24 mt-16 justify-center">
+            {iconList.map(({ title, content, image }) => {
+              return (
+                <div key={title} className="flex items-center">
+                  <div className="w-[65px] h-[65px] mr-6 rounded-full bg-[var(--main-color)] flex items-center justify-center">
+                    <Image
+                      src={image.src}
+                      width={image.width}
+                      height={image.height}
+                      alt={title}
+                    />
+                  </div>
+                  <div>
+                    <h3 className={cn(titleStyle({ font: "Inter" }), "mt-2")}>
+                      {title}
+                    </h3>
+                    <p className={normalTextStyle()}>{content}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="w-full flex justify-center gap-24 mt-40">
+            <div className="flex flex-col items-center">
+              <Image
+                src={"/images/justice-fund.png"}
+                width={567}
+                height={309}
+                alt={"justice fund"}
+              />
+              <h3
+                className={cn(
+                  titleStyle({ font: "Inter" }),
+                  "mt-8 text-[20px]"
+                )}
+              >
+                Goddess of Justice Fund
+              </h3>
+              <p className={cn(normalTextStyle(), "mt-2")}>
+                The Justice Goddess Fund is designed to address real-world
+                injustices swiftly and effectively. It responds to social,
+                economic, and political issues, empowering individuals and
+                communities who face unfair treatment.
+              </p>
+              <Button
+                className={cn(
+                  titleStyle({ font: "kodchasan" }),
+                  "text-[15px] mt-9"
+                )}
+              >
+                Learn More
+              </Button>
+            </div>
+            <div className="flex flex-col items-center">
+              <Image
+                src={"/images/fairness-fund.png"}
+                width={548}
+                height={309}
+                alt={"fairness fund"}
+              />
+              <h3
+                className={cn(
+                  titleStyle({ font: "Inter" }),
+                  "mt-8 text-[20px]"
+                )}
+              >
+                Tech Fairness Fund
+              </h3>
+              <p className={cn(normalTextStyle(), "mt-2")}>
+                The Tech Fairness Fund invests in open, accessible, and
+                community-owned technologies that reduce entry barriers and
+                enable equitable participation in the digital economy. From
+                foundational tools to public goods, it champions digital equity
+                for all.
+              </p>
+              <Button
+                className={cn(
+                  titleStyle({ font: "kodchasan" }),
+                  "text-[15px] mt-9"
+                )}
+              >
+                Learn More
+              </Button>
+            </div>
+          </div>
+          <div className="flex flex-col items-center mt-36">
+            <h1 className={cn(titleStyle({ font: "kodchasan" }))}>
+              BUY $FAIR3 TODAY
+            </h1>
+            <p className={cn(normalTextStyle(), "mt-3.5 max-w-3xl")}>
+              LEGAL DISCLAIMER: $FAIR3 is a crypto coin with no intrinsic value
+              or expectation of financial return.  this website provides general
+              information only and does not constitute personalized financial,
+              investment, or legal advice.
+            </p>
+            <div className="flex justify-center gap-16 mt-10">
+              {companyIconList.map((icon) => (
+                <div
+                  className="flex gap-4 justify-center items-center"
+                  key={icon.name}
+                >
+                  <Image src={icon.src} width={30} height={30} alt={icon.alt} />
+                  <p className={normalTextStyle()}>{icon.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="2xl:w-[1440px] mt-24 gap-32 flex flex-wrap">
+          {blockChainList.map((blockChain, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center"
+            >
+              <Image
+                src={blockChain.src}
+                width={100}
+                height={100}
+                alt={blockChain.alt}
+              />
+              <span className="mt-3">{blockChain.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
