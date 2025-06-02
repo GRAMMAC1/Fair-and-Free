@@ -9,4 +9,4 @@ export const titleStyle = cva('font-bold text-[40px] text-[var(--selected-text-c
   }
 })
 
-export const normalTextStyle = cva('text-[var(--selected-text-color)] text-[15px] font-normal')
+export const normalTextStyle = cva('font-[Inter] text-[var(--selected-text-color)] text-[15px] font-normal')
