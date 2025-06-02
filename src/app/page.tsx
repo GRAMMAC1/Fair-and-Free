@@ -233,10 +233,10 @@ export default function Home() {
                 Goddess of Justice Fund
               </h3>
               <p className={cn(normalTextStyle(), "mt-2")}>
-                The Justice Goddess Fund is designed to address real-world
-                injustices swiftly and effectively. It responds to social,
-                economic, and political issues, empowering individuals and
-                communities who face unfair treatment.
+                The Justice Fund is designed to address real-world injustices
+                swiftly and effectively. It responds to social, economic, and
+                political issues, empowering individuals and communities who
+                face unfair treatment.
               </p>
               <Button
                 className={cn(

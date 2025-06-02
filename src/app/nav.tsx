@@ -27,7 +27,7 @@ const navList: NavItem[] = [
     name: "Foundation",
     href: "/foundation",
     children: [
-      { name: "Justice Goddess", href: "/foundation/justice-fund" },
+      { name: "Justice Fund", href: "/foundation/justice-fund" },
       { name: "Tech Fairness Fund", href: "/foundation/tech-fairness-fund" },
     ],
   },
