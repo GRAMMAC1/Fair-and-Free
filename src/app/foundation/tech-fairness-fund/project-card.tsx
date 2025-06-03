@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export function ProjectCard() {
+  const router = useRouter();
+
   return (
     <div
       style={{
@@ -9,10 +14,12 @@ export function ProjectCard() {
       className="w-[290px] h-[307px] p-6 bg-[var(--main-color)]/60 rounded-[10px] backdrop-blur-xs text-[var(--selected-text-color)]"
     >
       <Image
+        className={"cursor-pointer"}
         src={"/images/about/about-cto.png"}
         width={238}
         height={134}
         alt="Project Image"
+        onClick={() => router.push("/foundation/tech-fairness-fund/1")}
       />
       <h1 className={"mt-4 font-[Inter] font-extrabold text-[16px]"}>
         OpenDAO Toolkit

@@ -1,5 +1,6 @@
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { titleStyle, normalTextStyle } from "@/shared/styles";
@@ -107,7 +108,9 @@ export default function TechFairnessFundPage() {
           }}
           className={"mt-10 font-[Inter]"}
         >
-          Submit Your Project
+          <Link href={"/foundation/tech-fairness-fund/projects"}>
+            Submit Your Project
+          </Link>
         </Button>
       </div>
       <div className={"2xl:w-[1440px] w-full"}>
@@ -121,10 +124,13 @@ export default function TechFairnessFundPage() {
               empower developers and make technology accessible to everyone.
             </p>
           </div>
-          <div className="flex gap-2 items-center cursor-pointer">
+          <Link
+            href={"/foundation/tech-fairness-fund/projects"}
+            className="flex gap-2 items-center cursor-pointer"
+          >
             <span>View More</span>
             <ChevronRight size={14} />
-          </div>
+          </Link>
         </div>
         <div className="flex gap-6 mt-9">
           <ProjectCard />
