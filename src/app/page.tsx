@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Vanta } from "@/shared/vanta";
 import { titleStyle, normalTextStyle } from "@/shared/styles";
 import { Button } from "@/components/ui/button";
+import { EventCard } from "./foundation/justice-fund/event-card";
 
 declare global {
   interface Window {
@@ -140,7 +141,7 @@ export default function Home() {
           id="vanta-container"
           className="w-full h-[855px] bg-white flex justify-center"
         >
-          <div className={"2xl:w-[1440px]"}>
+          <div className={"2xl:w-[1440px] w-full relative"}>
             <h1
               className={
                 "mt-16 font-normal font-[Konkhmer Sleokchher] text-[58px]"
@@ -170,6 +171,12 @@ export default function Home() {
             >
               <span>BUY $FAIR3 ON BSC</span>
             </Button>
+            <div className="flex flex-nowrap absolute bottom-0 left-0 gap-5">
+              <EventCard noDesc />
+              <EventCard noDesc />
+              <EventCard noDesc />
+              <EventCard noDesc />
+            </div>
           </div>
         </div>
         <h1 className={cn(titleStyle({ font: "kodchasan" }), "mt-32")}>
