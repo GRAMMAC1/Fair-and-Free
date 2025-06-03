@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { titleStyle, normalTextStyle } from "@/shared/styles";
@@ -55,6 +58,8 @@ const justiceFundList = [
 ] as const;
 
 export default function JusticeFundPage() {
+  const router = useRouter();
+
   return (
     <div className="flex flex-col items-center relative">
       <BackgroundBlur
@@ -81,6 +86,7 @@ export default function JusticeFundPage() {
           }}
           variant={"linear"}
           className={"mt-10"}
+          onClick={() => router.push("/foundation/justice-fund/events")}
         >
           I want to speak up
         </Button>
@@ -90,6 +96,9 @@ export default function JusticeFundPage() {
           Featured Events
         </h1>
         <div className={"flex gap-6 mt-8"}>
+          <EventCard />
+          <EventCard />
+          <EventCard />
           <EventCard />
         </div>
         <div className={"flex mt-28"}>
