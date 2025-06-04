@@ -38,7 +38,7 @@ export default function AboutPage() {
           </div>
           <Image
             className="ml-[90px]"
-            src={"/images/about/about-fair3.png"}
+            src={"/images/about/qvod.png"}
             width={392}
             height={221}
             alt="about fair3"
