@@ -82,7 +82,7 @@ const iconList = [
 
 export default function TechFairnessFundPage() {
   return (
-    <div className="flex flex-col items-center relative">
+    <div className="flex flex-col items-center relative overflow-x-hidden">
       <BackgroundBlur
         top={241}
         right={-115}

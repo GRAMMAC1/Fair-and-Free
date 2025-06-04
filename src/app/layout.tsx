@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 
 import Nav from "./nav";
 import { ContactLink } from "@/shared/contact-link";
@@ -60,7 +61,12 @@ export default function RootLayout({
               alt={"fair3 logo"}
             />
             <Nav />
-            <ContactLink />
+            <ContactLink
+              Xlink={"https://x.com/Fair3_community"}
+              telegramCNLink={"https://t.me/Fair3_Chinese"}
+              telegramENLink={"https://t.me/Fair3Community/252"}
+              githubLink={"https://github.com/FAIR3CTO/Fair-and-Free"}
+            />
           </div>
         </header>
         {children}
@@ -81,26 +87,38 @@ export default function RootLayout({
                 Contact Us
               </h3>
               <div className="flex mt-7">
-                <Image
-                  src={"/images/telegram.svg"}
-                  width={20}
-                  height={18}
-                  alt={"Telegram CN Link"}
-                />
-                <span className={"ml-2.5 text-[#000]"}>
-                  @ElaraFair3Community
-                </span>
+                <Link
+                  href={"https://t.me/ElaraFair3Community"}
+                  target="_blank"
+                  className="flex items-center"
+                >
+                  <Image
+                    src={"/images/telegram.svg"}
+                    width={20}
+                    height={18}
+                    alt={"Telegram CN Link"}
+                  />
+                  <span className={"ml-2.5 text-[#000]"}>
+                    @ElaraFair3Community
+                  </span>
+                </Link>
               </div>
               <div className="flex mt-7">
-                <Image
-                  src={"/images/telegram.svg"}
-                  width={20}
-                  height={18}
-                  alt={"Telegram CN Link"}
-                />
-                <span className={"ml-2.5 text-[#000]"}>
-                  @KieranFair3Community
-                </span>
+                <Link
+                  href={"https://t.me/KieranFair3Community"}
+                  target="_blank"
+                  className="flex items-center"
+                >
+                  <Image
+                    src={"/images/telegram.svg"}
+                    width={20}
+                    height={18}
+                    alt={"Telegram CN Link"}
+                  />
+                  <span className={"ml-2.5 text-[#000]"}>
+                    @KieranFair3Community
+                  </span>
+                </Link>
               </div>
               <ContactLink className={"mt-7"} />
             </div>

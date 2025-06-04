@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 import { Vanta } from "@/shared/vanta";
@@ -144,7 +145,7 @@ export default function Home() {
           <div className={"2xl:w-[1440px] w-full relative"}>
             <h1
               className={
-                "mt-16 font-normal font-[Konkhmer Sleokchher] text-[58px]"
+                "mt-16 font-bold font-[Konkhmer Sleokchher] text-[58px]"
               }
             >
               <span className="mr-2 text-[var(--main-color)]">FAIR</span>
@@ -169,7 +170,14 @@ export default function Home() {
                 backdropFilter: "blur(4px)",
               }}
             >
-              <span>BUY $FAIR3 ON BSC</span>
+              <Link
+                href={
+                  "https://dexscreener.com/bsc/0x701232f46796855b0841df2cbf46595c00667dde"
+                }
+                target="_blank"
+              >
+                BUY $FAIR3 ON BSC
+              </Link>
             </Button>
             <div className="flex flex-nowrap absolute bottom-0 left-0 gap-5">
               <EventCard noDesc />
@@ -251,7 +259,7 @@ export default function Home() {
                   "text-[15px] mt-9"
                 )}
               >
-                Learn More
+                <Link href={"/foundation/justice-fund"}>Learn More</Link>
               </Button>
             </div>
             <div className="flex flex-col items-center">
@@ -282,7 +290,7 @@ export default function Home() {
                   "text-[15px] mt-9"
                 )}
               >
-                Learn More
+                <Link href={"/foundation/tech-fairness-fund"}>Learn More</Link>
               </Button>
             </div>
           </div>

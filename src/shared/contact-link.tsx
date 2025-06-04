@@ -1,36 +1,98 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export function ContactLink({ className }: { className?: string }) {
+export function ContactLink({
+  className,
+  telegramCNLink,
+  telegramENLink,
+  githubLink,
+  telegramLink,
+  Xlink,
+}: {
+  className?: string;
+  Xlink?: string;
+  telegramCNLink?: string;
+  telegramENLink?: string;
+  githubLink?: string;
+  telegramLink?: string;
+}) {
+  const renderXLink = () => {
+    if (Xlink) {
+      return (
+        <Link href={Xlink} target="_blank">
+          <Image src={"/images/X.svg"} width={20} height={18} alt={"X Link"} />
+        </Link>
+      );
+    }
+  };
+
+  const renderTelegramCNLink = () => {
+    if (telegramCNLink) {
+      return (
+        <Link href={telegramCNLink} target="_blank">
+          <Image
+            src={"/images/telegram.svg"}
+            width={20}
+            height={18}
+            alt={"telegram CN Link"}
+          />
+        </Link>
+      );
+    }
+  };
+
+  const renderTelegramENLink = () => {
+    if (telegramENLink) {
+      return (
+        <Link href={telegramENLink} target="_blank">
+          <Image
+            src={"/images/telegram.svg"}
+            width={20}
+            height={18}
+            alt={"telegram EN Link"}
+          />
+        </Link>
+      );
+    }
+  };
+
+  const renderTelegramLink = () => {
+    if (telegramLink) {
+      return (
+        <Link href={telegramLink} target="_blank">
+          <Image
+            src={"/images/telegram.svg"}
+            width={20}
+            height={18}
+            alt={"telegram Link"}
+          />
+        </Link>
+      );
+    }
+  };
+
+  const renderGithubLink = () => {
+    if (githubLink) {
+      return (
+        <Link href={githubLink} target="_blank">
+          <Image
+            src={"/images/github.svg"}
+            width={22}
+            height={22}
+            alt={"github Link"}
+          />
+        </Link>
+      );
+    }
+  };
+
   return (
     <div className={`flex gap-[24px] items-center ${className}`}>
-      <Link href={"https://x.com/fair3fund"} target="_blank">
-        <Image src={"/images/X.svg"} width={20} height={18} alt={"X Link"} />
-      </Link>
-      <Link href={"https://t.me/fair3fund"} target="_blank">
-        <Image
-          src={"/images/telegram.svg"}
-          width={20}
-          height={18}
-          alt={"telegram CN Link"}
-        />
-      </Link>
-      <Link href={"https://t.me/fair3fund_en"} target="_blank">
-        <Image
-          src={"/images/telegram.svg"}
-          width={20}
-          height={18}
-          alt={"telegram EN Link"}
-        />
-      </Link>
-      <Link href={"https://fair3fund.org"} target="_blank">
-        <Image
-          src={"/images/github.svg"}
-          width={22}
-          height={22}
-          alt={"github Link"}
-        />
-      </Link>
+      {renderXLink()}
+      {renderTelegramCNLink()}
+      {renderTelegramENLink()}
+      {renderTelegramLink()}
+      {renderGithubLink()}
     </div>
   );
 }

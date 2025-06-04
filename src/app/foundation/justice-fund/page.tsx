@@ -61,7 +61,7 @@ export default function JusticeFundPage() {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col items-center relative">
+    <div className="flex flex-col items-center relative overflow-x-hidden">
       <BackgroundBlur
         top={500}
         right={-115}
