@@ -70,9 +70,7 @@ export default function Nav() {
           className={menuItemStyles({ isActive: active })}
         >
           <NavigationMenuTrigger className={triggerStyles()}>
-            <Link href={item.href} className="no-underline">
-              {item.name}
-            </Link>
+            {item.name}
           </NavigationMenuTrigger>
           <NavigationMenuContent
             style={{ background: "var(--main-color)", zIndex: 2 }}
