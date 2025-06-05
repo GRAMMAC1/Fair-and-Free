@@ -2,6 +2,9 @@ import Image from "next/image";
 
 import { BackgroundBlur } from "@/shared/background-blur";
 
+// compat cloudflare worker
+export const runtime = "edge";
+
 export default function FoundationPage() {
   return (
     <div className="flex relative flex-col items-center ">

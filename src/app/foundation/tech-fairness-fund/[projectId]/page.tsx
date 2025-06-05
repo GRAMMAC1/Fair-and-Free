@@ -3,6 +3,9 @@ import { BackgroundBlur } from "@/shared/background-blur";
 import { titleStyle } from "@/shared/styles";
 import { ContactLink } from "@/shared/contact-link";
 
+// compat cloudflare worker
+export const runtime = "edge";
+
 const TitleIcon = () => {
   return (
     <div
