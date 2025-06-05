@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 import { Vanta } from "@/shared/vanta";
@@ -148,7 +149,9 @@ const blockChainList: Array<{
 ];
 
 export default function Home() {
-  const handleVantaReady = () => {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
     if (window.VANTA)
       window.VANTA.GLOBE({
         el: "#vanta-container",
@@ -164,6 +167,10 @@ export default function Home() {
         size: 1.4,
         backgroundColor: "#ffffff",
       });
+  }, [ready]);
+
+  const handleVantaReady = () => {
+    setReady(true);
   };
 
   return (
@@ -194,7 +201,7 @@ export default function Home() {
             </p>
             <Button
               className={
-                "mt-9 font-[Kodchasan] text-[20px] font-bold text-black cursor-pointer"
+                "mt-9 font-[Kodchasan] text-[20px] font-bold text-black cursor-pointer bg-[#9871FF]"
               }
               style={{
                 backdropFilter: "blur(4px)",

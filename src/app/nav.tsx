@@ -40,16 +40,14 @@ const menuItemStyles = cva(
   {
     variants: {
       isActive: {
-        true: "bg-[var(--main-color)] font-bold text-[var(--selected-text-color)]",
+        true: "bg-[#9871FF] font-bold text-[var(--selected-text-color)]",
         false: "hover:text-accent-foreground",
       },
     },
   }
 );
 
-const triggerStyles = cva(
-  "bg-transparent! p-0 h-auto font-normal text-[16px]"
-);
+const triggerStyles = cva("bg-transparent! p-0 h-auto font-normal text-[16px]");
 
 export default function Nav() {
   const pathname = usePathname();
@@ -73,7 +71,7 @@ export default function Nav() {
             {item.name}
           </NavigationMenuTrigger>
           <NavigationMenuContent
-            style={{ background: "var(--main-color)", zIndex: 2 }}
+            style={{ background: "#9871FF", zIndex: 2 }}
             className="flex flex-col min-w-[200px] backdrop-blur-xs p-2 border rounded-md shadow-md"
           >
             {item.children?.map((child) => (
