@@ -3,12 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import useSWR from "swr";
 
 import { cn } from "@/lib/utils";
 import { Vanta } from "@/shared/vanta";
 import { titleStyle, normalTextStyle } from "@/shared/styles";
 import { Button } from "@/components/ui/button";
 import { EventCard } from "./foundation/justice-fund/event-card";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { fetcher } from "@/shared/fetcher";
+
+import type { EventResponse } from "@/shared/types";
 
 declare global {
   interface Window {
@@ -150,6 +155,9 @@ const blockChainList: Array<{
 
 export default function Home() {
   const [ready, setReady] = useState(false);
+  const { data } = useSWR<EventResponse>(`/event/gethomeEvents`, fetcher);
+
+  const { data: evevts = [] } = data || {};
 
   useEffect(() => {
     if (window.VANTA)
@@ -181,47 +189,62 @@ export default function Home() {
           id="vanta-container"
           className="w-full h-[855px] bg-white flex justify-center"
         >
-          <div className={"2xl:w-[1440px] w-full relative"}>
-            <h1
-              className={
-                "mt-16 font-bold font-[Konkhmer Sleokchher] text-[58px] text-[#7c49ff]"
-              }
-            >
-              FAIR AND FREE
-            </h1>
-            <h2
-              className={
-                "max-w-2xl mt-4 font-bold font-[Kodchasan] text-[40px]"
-              }
-            >
-              Back Builders. Defend Justice. Own the Future.
-            </h2>
-            <p className={"mt-7 text-black font-normal text-[15px]"}>
-              BNB Chain CA:0x6952c5408b9822295ba4a7e694d0c5ffdb8fe320
-            </p>
-            <Button
-              className={
-                "mt-9 font-[Kodchasan] text-[20px] font-bold text-black cursor-pointer bg-[#9871FF]"
-              }
-              style={{
-                backdropFilter: "blur(4px)",
-              }}
-            >
-              <Link
-                href={
-                  "https://dexscreener.com/bsc/0x701232f46796855b0841df2cbf46595c00667dde"
+          <div
+            className={
+              "2xl:w-[1440px] flex flex-col justify-between w-full relative"
+            }
+          >
+            <div className="mt-16">
+              <h1
+                className={
+                  "font-bold font-[Konkhmer Sleokchher] text-[58px] text-[#7c49ff]"
                 }
-                target="_blank"
               >
-                BUY $FAIR3 ON BSC
-              </Link>
-            </Button>
-            <div className="flex flex-nowrap absolute bottom-0 left-0 gap-5">
-              <EventCard noDesc />
-              <EventCard noDesc />
-              <EventCard noDesc />
-              <EventCard noDesc />
+                FAIR AND FREE
+              </h1>
+              <h2
+                className={
+                  "max-w-2xl mt-4 font-bold font-[Kodchasan] text-[40px]"
+                }
+              >
+                Back Builders. Defend Justice. Own the Future.
+              </h2>
+              <p className={"mt-7 text-black font-normal text-[15px]"}>
+                BNB Chain CA:0x6952c5408b9822295ba4a7e694d0c5ffdb8fe320
+              </p>
+              <Button
+                className={
+                  "mt-9 font-[Kodchasan] text-[20px] font-bold text-black cursor-pointer bg-[#9871FF]"
+                }
+                style={{
+                  backdropFilter: "blur(4px)",
+                }}
+              >
+                <Link
+                  href={
+                    "https://dexscreener.com/bsc/0x701232f46796855b0841df2cbf46595c00667dde"
+                  }
+                  target="_blank"
+                >
+                  BUY $FAIR3 ON BSC
+                </Link>
+              </Button>
             </div>
+            <ScrollArea>
+              <div className="flex flex-nowrap gap-5 items-end">
+                {evevts.map((item) => (
+                  <EventCard
+                    id={item.id}
+                    key={item.id}
+                    src={item.cover}
+                    title={item.title}
+                    description={item.description}
+                    noDesc={true}
+                  />
+                ))}
+              </div>
+              <ScrollBar orientation={"horizontal"} />
+            </ScrollArea>
           </div>
         </div>
         <h1 className={cn(titleStyle({ font: "kodchasan" }), "mt-32")}>

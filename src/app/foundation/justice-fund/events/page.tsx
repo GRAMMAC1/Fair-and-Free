@@ -1,13 +1,47 @@
+"use client";
+
+import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import useSWR from "swr";
 
 import { BackgroundBlur } from "@/shared/background-blur";
 import { titleStyle } from "@/shared/styles";
 import { cn } from "@/lib/utils";
 import { EventListItem } from "../event-list-item";
+import { fetcher } from "@/shared/fetcher";
+import { Skeleton } from "@/components/ui/skeleton";
+import type { EventResponse } from "@/shared/types";
 
 export default function EventPage() {
+  const [count, setCount] = useState(4);
+  const { data, isLoading } = useSWR<EventResponse>(
+    "/event/getAllEvents",
+    fetcher
+  );
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center">
+        <div className="2xl:w-[1440px] flex w-full mt-16">
+          <div className="flex gap-7">
+            <Skeleton className="h-[286px] w-[384px] rounded-xl" />
+            <div className="space-y-10">
+              <Skeleton className="h-12 w-[400px] mt-5" />
+              <Skeleton className="h-12 w-[600px]" />
+              <Skeleton className="h-12 w-[140px]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const { data: events = [] } = data || {};
+
+  console.log("Events data:", data);
+
   return (
-    <div className="flex flex-col items-center relative overflow-x-hidden">
+    <div className="flex flex-col items-center relative overflow-x-hidden min-h-[500px]">
       <BackgroundBlur
         top={-525}
         right={-115}
@@ -18,20 +52,28 @@ export default function EventPage() {
           Events
         </h1>
         <div className="flex flex-col gap-10 mt-10">
-          <EventListItem />
-          <EventListItem />
-          <EventListItem />
-          <EventListItem />
+          {events.slice(0, count).map((event) => (
+            <EventListItem
+              key={event.id}
+              id={event.id}
+              src={event.cover}
+              title={event.title}
+              description={event.description}
+            />
+          ))}
         </div>
         <div className="flex flex-col items-center justify-center mt-8 text-center">
-          <span
-            className={cn(
-              titleStyle({ font: "kodchasan" }),
-              "flex flex-col items-center cursor-pointer text-[20px]"
-            )}
-          >
-            View More <ChevronDown className="mt-1" size={14} />
-          </span>
+          {events.length > 0 && (
+            <span
+              className={cn(
+                titleStyle({ font: "kodchasan" }),
+                "flex flex-col items-center cursor-pointer text-[20px]"
+              )}
+              onClick={() => setCount((prev) => prev + 4)}
+            >
+              View More <ChevronDown className="mt-1" size={14} />
+            </span>
+          )}
         </div>
       </div>
     </div>

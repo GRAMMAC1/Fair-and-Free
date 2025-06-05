@@ -8,6 +8,9 @@ import { titleStyle, normalTextStyle } from "@/shared/styles";
 import { Button } from "@/components/ui/button";
 import { EventCard } from "./event-card";
 import { BackgroundBlur } from "@/shared/background-blur";
+import { baseUrl } from "@/shared/fetcher";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import type { Event } from "@/shared/types";
 
 const iconList = [
   {
@@ -71,7 +74,22 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function JusticeFundPage() {
+export const runtime = "edge";
+
+type EventResponse = {
+  data: Event[];
+  message: string;
+  code: number;
+  success: boolean;
+};
+
+export default async function JusticeFundPage() {
+  const data = await fetch(baseUrl + "/event/getSelectedEvents", {
+    next: { revalidate: 60 },
+  });
+  const events: EventResponse = await data.json();
+  const { data: eventList = [] } = events;
+
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden">
       <BackgroundBlur
@@ -122,12 +140,20 @@ export default function JusticeFundPage() {
             <ChevronRight size={14} />
           </Link>
         </div>
-        <div className={"flex gap-6 mt-8"}>
-          <EventCard />
-          <EventCard />
-          <EventCard />
-          <EventCard />
-        </div>
+        <ScrollArea>
+          <div className={"flex gap-6 mt-8"}>
+            {eventList.map((event) => (
+              <EventCard
+                id={event.id}
+                key={event.id}
+                src={event.cover}
+                title={event.title}
+                description={event.description}
+              />
+            ))}
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
         <div className={"flex mt-28"}>
           <div className="mr-16">
             <h1 className={titleStyle({ font: "kodchasan" })}>Justice Fund</h1>
