@@ -1,7 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Metadata } from "next";
 
 import { cn } from "@/lib/utils";
 import { titleStyle, normalTextStyle } from "@/shared/styles";
@@ -57,9 +56,21 @@ const justiceFundList = [
   },
 ] as const;
 
-export default function JusticeFundPage() {
-  const router = useRouter();
+export const metadata: Metadata = {
+  title: "Goddess of Justice Fund: Social Fairness | FAIR3",
+  description:
+    "The Goddess of Justice Fund by FAIR3 stands as a voice for the voiceless, championing education equity and cultural diversity. Raise your voice with us to drive impactful social fairness initiatives today!",
+  keywords: [
+    "goddess of justice fund",
+    "FAIR3",
+    "voice for justice",
+    "education equity advocacy",
+    "cultural diversity champion",
+    "social fairness movement",
+  ],
+};
 
+export default function JusticeFundPage() {
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden">
       <BackgroundBlur
@@ -86,9 +97,15 @@ export default function JusticeFundPage() {
           }}
           variant={"linear"}
           className={"mt-10"}
-          onClick={() => router.push("/foundation/justice-fund/events")}
         >
-          I want to speak up
+          <Link
+            href={
+              "https://docs.google.com/forms/d/e/1FAIpQLSfvCN-BRH0mQC84iMXoDjG4xYHIIlfuA_8zQMiTD32mb56X7g/viewform"
+            }
+            target="_blank"
+          >
+            I want to speak up
+          </Link>
         </Button>
       </div>
       <div className="2xl:w-[1440px] mt-14">
@@ -209,7 +226,14 @@ export default function JusticeFundPage() {
               className="mt-8"
               style={{ border: "1px solid var(--selected-text-color)" }}
             >
-              I want to speak up
+              <Link
+                href={
+                  "https://docs.google.com/forms/d/e/1FAIpQLSfvCN-BRH0mQC84iMXoDjG4xYHIIlfuA_8zQMiTD32mb56X7g/viewform"
+                }
+                target="_blank"
+              >
+                I want to speak up
+              </Link>
             </Button>
           </div>
           <Image

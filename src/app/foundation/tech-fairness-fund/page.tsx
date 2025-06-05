@@ -124,7 +124,12 @@ export default function TechFairnessFundPage() {
           }}
           className={"mt-10 font-[Inter]"}
         >
-          <Link href={"/foundation/tech-fairness-fund/projects"}>
+          <Link
+            href={
+              "https://docs.google.com/forms/d/e/1FAIpQLSd46wgcc-JtyupesVH192jmf8XRg28zsfJXUSQMsY1TOXJp6g/viewform"
+            }
+            target="_blank"
+          >
             Submit Your Project
           </Link>
         </Button>
@@ -308,7 +313,14 @@ export default function TechFairnessFundPage() {
             </div>
           </div>
           <Button variant={"main"} className="font-[Kodchasan]">
-            Submit Your Project
+            <Link
+              href={
+                "https://docs.google.com/forms/d/e/1FAIpQLSd46wgcc-JtyupesVH192jmf8XRg28zsfJXUSQMsY1TOXJp6g/viewform"
+              }
+              target="_blank"
+            >
+              Submit Your Project
+            </Link>
           </Button>
         </div>
       </div>
