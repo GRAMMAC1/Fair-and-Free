@@ -68,8 +68,8 @@ export default function RootLayout({
             <Image
               className={"mt-1"}
               src={"/images/header-logo.svg"}
-              width={100}
-              height={104}
+              width={155}
+              height={81}
               alt={"fair3 logo"}
             />
             <Nav />
