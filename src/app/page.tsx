@@ -240,6 +240,7 @@ export default function Home() {
                     title={item.title}
                     description={item.description}
                     noDesc={true}
+                    noAnimate={false}
                   />
                 ))}
               </div>

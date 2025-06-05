@@ -55,6 +55,9 @@
   --card-bg-hover-color: #9a71ffcc;
   --card-border-color: #0000001a;
 
+  --content-bg-color: #F7F5FF;
+  --content-border-color: #C091FF;
+
   --color-primary: oklch(0.685 0.125 285); /* #9C8EDF - 主题色 */
   --color-primary-light: oklch(0.745 0.098 285); /* #b0a5e5 - 次要色 */
   --color-primary-lighter: oklch(0.805 0.072 285); /* #c4bbec - 第三色 */

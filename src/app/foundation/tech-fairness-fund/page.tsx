@@ -8,6 +8,9 @@ import { titleStyle, normalTextStyle } from "@/shared/styles";
 import { Button } from "@/components/ui/button";
 import { ProjectCard } from "./project-card";
 import { BackgroundBlur } from "@/shared/background-blur";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { baseUrl } from "@/shared/fetcher";
+import type { ProjectResponse } from "@/shared/types";
 
 const imageList = [
   {
@@ -96,7 +99,19 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function TechFairnessFundPage() {
+export const runtime = "edge";
+
+export default async function TechFairnessFundPage() {
+  const data = await fetch(baseUrl + "/projects/getSelectedProjects", {
+    next: {
+      revalidate: 60,
+    },
+  });
+  const projects: ProjectResponse = await data.json();
+  const { data: projectList } = projects;
+
+  console.log("Projects:", projectList);
+
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden">
       <BackgroundBlur
@@ -153,11 +168,22 @@ export default function TechFairnessFundPage() {
             <ChevronRight size={14} />
           </Link>
         </div>
-        <div className="flex gap-6 mt-9">
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-        </div>
+        <ScrollArea className="mt-9">
+          <div className="flex gap-6">
+            {projectList.map((project) => (
+              <ProjectCard
+                key={project.id}
+                id={project.id}
+                title={project.projectName}
+                oneLiner={project.oneLiner}
+                githubLink={project.githubLink}
+                twitterLink={project.twitterLink}
+                telegramLink={project.telegramLink}
+              />
+            ))}
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
         <div className="flex mt-21">
           <div className="mr-16">
             <h1 className={cn(titleStyle({ font: "kodchasan" }))}>

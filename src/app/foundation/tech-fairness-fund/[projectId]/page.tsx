@@ -1,10 +1,23 @@
+import Link from "next/link";
+
 import { cn } from "@/lib/utils";
 import { BackgroundBlur } from "@/shared/background-blur";
-import { titleStyle } from "@/shared/styles";
+import { normalTextStyle, titleStyle } from "@/shared/styles";
 import { ContactLink } from "@/shared/contact-link";
+import { baseUrl } from "@/shared/fetcher";
+
+import type { Project } from "@/shared/types";
+import { ReactNode } from "react";
 
 // compat cloudflare worker
 export const runtime = "edge";
+
+type ProjectResponse = {
+  code: number;
+  data: Project;
+  message: string;
+  success: boolean;
+};
 
 const TitleIcon = () => {
   return (
@@ -17,6 +30,29 @@ const TitleIcon = () => {
   );
 };
 
+const ContentBlock = ({
+  title,
+  value,
+  richText = false,
+}: {
+  title: string;
+  value: ReactNode | string;
+  richText?: boolean;
+}) => {
+  return (
+    <div className="ml-10 mt-5">
+      <h2 className={cn(titleStyle({ font: "Inter" }), "text-[15px]")}>
+        {title}:
+      </h2>
+      {richText && typeof value === "string" ? (
+        <div className="mt-2" dangerouslySetInnerHTML={{ __html: value }} />
+      ) : (
+        <div className={normalTextStyle()}>{value}</div>
+      )}
+    </div>
+  );
+};
+
 export default async function ProjectDetailPage({
   params,
 }: {
@@ -24,6 +60,21 @@ export default async function ProjectDetailPage({
 }) {
   // @eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { projectId } = await params;
+  const res = await fetch(`${baseUrl}/projects/getProjectById/${projectId}`, {
+    next: { revalidate: 60 },
+  });
+  const data: ProjectResponse = await res.json();
+  const { data: project } = data;
+
+  if (!project) {
+    return (
+      <div className="h-[60vh] flex flex-col items-center mt-20">
+        <h1 className="text-2xl">Project not found</h1>
+      </div>
+    );
+  }
+
+  const { projectName, telegramLink, githubLink, twitterLink } = project;
 
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden">
@@ -33,11 +84,16 @@ export default async function ProjectDetailPage({
         style={{ top: "-525px", right: "-115px" }}
       />
       <h1 className={cn(titleStyle({ font: "kodchasan" }), "text-2xl mt-24")}>
-        OpenDAO Toolkit
+        {projectName}
       </h1>
-      <ContactLink className={"mt-8"} />
+      <ContactLink
+        className={"mt-8"}
+        Xlink={twitterLink}
+        githubLink={githubLink}
+        telegramLink={telegramLink}
+      />
       <div className="2xl:w-[1440px] w-full">
-        <div className="w-full min-h-[500px] mt-20 px-12 pt-14 rounded-[10px] bg-[#F4FFDF]">
+        <div className="w-full min-h-[500px] mt-20 px-12 pt-14 rounded-[10px] bg-[var(--content-bg-color)] border-1 border-[var(--content-border-color)]">
           <div className="flex items-center">
             <TitleIcon />
             <h1
@@ -46,6 +102,23 @@ export default async function ProjectDetailPage({
               Project Overview
             </h1>
           </div>
+          <ContentBlock title={"Name"} value={projectName} />
+          <ContentBlock title={"One-Liner"} value={project.oneLiner} />
+          <ContentBlock
+            title={"Project Description"}
+            value={project.rawContent}
+            richText
+          />
+          <ContentBlock title={"Current Stage"} value={project.stage} />
+          <ContentBlock title={"MileStone"} value={project.mileStone} />
+          <ContentBlock
+            title={"RoadMap with timelines"}
+            value={project.roadMap}
+          />
+          <ContentBlock
+            title={"Reason for Applying"}
+            value={project.applyReason}
+          />
           <div className="flex items-center mt-14">
             <TitleIcon />
             <h1
@@ -54,6 +127,8 @@ export default async function ProjectDetailPage({
               Impact & Outcomes
             </h1>
           </div>
+          <ContentBlock title={"Social Value"} value={project.socialValue} />
+          <ContentBlock title={"Use of Funds"} value={project.fundsUseDesc} />
           <div className="flex items-center mt-14">
             <TitleIcon />
             <h1
@@ -62,6 +137,44 @@ export default async function ProjectDetailPage({
               Technical Contribution
             </h1>
           </div>
+          {githubLink && (
+            <ContentBlock
+              title={"GitHub Link"}
+              value={
+                <Link
+                  href={githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {githubLink}
+                </Link>
+              }
+            />
+          )}
+          {twitterLink && (
+            <ContentBlock
+              title={"Twitter"}
+              value={
+                <Link
+                  href={twitterLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {twitterLink}
+                </Link>
+              }
+            />
+          )}
+          {telegramLink && (
+            <ContentBlock
+              title={"Telegram"}
+              value={
+                <Link href={telegramLink} target="_blank">
+                  {telegramLink}
+                </Link>
+              }
+            />
+          )}
         </div>
       </div>
     </div>
