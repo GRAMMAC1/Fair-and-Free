@@ -132,12 +132,8 @@ export default async function TechFairnessFundPage() {
           technologies.
         </h2>
         <Button
-          variant={"linear"}
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(89, 163, 203, 0.29) 0%, rgba(143, 76, 251, 0.29) 100%)",
-          }}
-          className={"mt-10 font-[Inter]"}
+          variant={"main"}
+          className={"mt-10 font-[Kodchasan] bg-[#8F4CFB] text-white"}
         >
           <Link
             href={
@@ -338,7 +334,10 @@ export default async function TechFairnessFundPage() {
               </p>
             </div>
           </div>
-          <Button variant={"main"} className="font-[Kodchasan] text-white">
+          <Button
+            variant={"main"}
+            className="font-[Kodchasan] text-white bg-[#8F4CFB]"
+          >
             <Link
               href={
                 "https://docs.google.com/forms/d/e/1FAIpQLSd46wgcc-JtyupesVH192jmf8XRg28zsfJXUSQMsY1TOXJp6g/viewform"

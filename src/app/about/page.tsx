@@ -28,7 +28,11 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <section className="flex relative flex-col text-[#353535] overflow-x-hidden">
-      <BackgroundBlur top={-525} right={-115} />
+      <BackgroundBlur
+        top={-525}
+        right={-115}
+        style={{ top: "-525px", right: "-115px" }}
+      />
       <h1 className={titleStyles()}>About FAIR3</h1>
       <h2 className={subTitleStyles()}>The Birth of FAIR3</h2>
       <div className="flex justify-center mt-[113px]">

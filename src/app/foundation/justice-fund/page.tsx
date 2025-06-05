@@ -110,12 +110,8 @@ export default async function JusticeFundPage() {
           voices for fairness
         </h2>
         <Button
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(89, 163, 203, 0.29) 0%, rgba(143, 76, 251, 0.29) 100%)",
-          }}
-          variant={"linear"}
-          className={"mt-10"}
+          variant={"main"}
+          className={"mt-10 font-[Kodchasan] bg-[#8F4CFB] text-white"}
         >
           <Link
             href={
@@ -259,8 +255,7 @@ export default async function JusticeFundPage() {
             </p>
             <Button
               variant={"main"}
-              className="mt-8 text-white"
-              style={{ border: "1px solid var(--selected-text-color)" }}
+              className="mt-8 text-white bg-[#9971FF] font-[Kodchasan]"
             >
               <Link
                 href={
