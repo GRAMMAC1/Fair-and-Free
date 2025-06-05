@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 
 import { cn } from "@/lib/utils";
 import { titleStyle, normalTextStyle } from "@/shared/styles";
@@ -79,6 +80,21 @@ const iconList = [
     desc: "Funding & Support",
   },
 ] as const;
+
+export const metadata: Metadata = {
+  title: "Tech Fairness Fund: Empowering Tech Equity | FAIR3",
+  description:
+    "The Tech Fairness Fund by FAIR3 empowers developers with open-source and decentralized solutions. Apply for funding to break tech barriers!",
+  keywords: [
+    "tech fairness fund",
+    "FAIR3",
+    "tech equity",
+    "open-source",
+    "decentralized tech",
+    "Web3 funding",
+    "developer empowerment",
+  ],
+};
 
 export default function TechFairnessFundPage() {
   return (

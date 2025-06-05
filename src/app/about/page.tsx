@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { cva } from "class-variance-authority";
+import { Metadata } from "next";
 
 import { BackgroundBlur } from "@/shared/background-blur";
 
@@ -8,6 +9,21 @@ const titleStyles = cva(
 );
 
 const subTitleStyles = cva("font-normal text-[20px] mt-4 text-center");
+
+export const metadata: Metadata = {
+  title: "About FAIR3: Our Journey to Fairness",
+  description:
+    "Learn about FAIR3’s origins, community takeover, and governance. Join our journey to build a fairer world in tech, economy, and society.",
+  keywords: [
+    "FAIR³",
+    "FAIR3",
+    "about FAIR3",
+    "community takeover",
+    "tech fairness",
+    "DAO governance",
+    "fairness journey",
+  ],
+};
 
 export default function AboutPage() {
   return (

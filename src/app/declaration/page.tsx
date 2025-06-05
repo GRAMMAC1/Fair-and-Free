@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { cva } from "class-variance-authority";
+import { Metadata } from "next";
 
 import { titleStyle, normalTextStyle } from "@/shared/styles";
 import { BackgroundBlur } from "@/shared/background-blur";
@@ -14,6 +15,23 @@ const chapterContainerStyle = cva("mt-5 ml-10 self-start");
 const Separator = ({ className }: { className?: string }) => (
   <div className={cn(className, "w-full h-[1px] bg-[#323232]")} />
 );
+
+export const metadata: Metadata = {
+  title: "FAIR3 Fairness Declaration: Join the Movement",
+  description:
+    "Discover the FAIR3 Fairness Declaration and join the movement for tech, economic, and social equity. Sign now to become a fairness supporter! ",
+  keywords: [
+    "FAIR³",
+    "FAIR3",
+    "fairness",
+    "declaration",
+    "tech equity",
+    "social equity",
+    " Web3 movement",
+    "community fairness",
+    "sign declaration",
+  ],
+};
 
 export default function DeclarationPage() {
   return (
