@@ -5,7 +5,11 @@ import { BackgroundBlur } from "@/shared/background-blur";
 // compat cloudflare worker
 export const runtime = "edge";
 
-export default function FoundationPage() {
+export default async function EventDetailPage({
+  params,
+}: {
+  params: Promise<{ eventId: string }>;
+}) {
   return (
     <div className="flex relative flex-col items-center ">
       <BackgroundBlur top={-525} right={-115} />
