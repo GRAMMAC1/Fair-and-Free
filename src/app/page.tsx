@@ -11,6 +11,7 @@ import { EventCard } from "./foundation/justice-fund/event-card";
 
 declare global {
   interface Window {
+    // @eslint-disable-next-line @typescript-eslint/no-explicit-any
     VANTA: any;
   }
 }

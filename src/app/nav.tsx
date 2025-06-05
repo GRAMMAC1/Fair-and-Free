@@ -76,7 +76,7 @@ export default function Nav() {
             style={{ background: "var(--main-color)", zIndex: 2 }}
             className="flex flex-col min-w-[200px] backdrop-blur-xs p-2 border rounded-md shadow-md"
           >
-            {item.children?.map((child, index) => (
+            {item.children?.map((child) => (
               <div
                 className={`custom-group flex my-1 items-center`}
                 key={child.name}

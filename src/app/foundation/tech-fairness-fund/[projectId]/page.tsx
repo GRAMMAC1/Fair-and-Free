@@ -19,6 +19,7 @@ export default async function ProjectDetailPage({
 }: {
   params: Promise<{ projectId: string }>;
 }) {
+  // @eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { projectId } = await params;
 
   return (
