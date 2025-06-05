@@ -312,7 +312,7 @@ export default function TechFairnessFundPage() {
               </p>
             </div>
           </div>
-          <Button variant={"main"} className="font-[Kodchasan]">
+          <Button variant={"main"} className="font-[Kodchasan] text-white">
             <Link
               href={
                 "https://docs.google.com/forms/d/e/1FAIpQLSd46wgcc-JtyupesVH192jmf8XRg28zsfJXUSQMsY1TOXJp6g/viewform"

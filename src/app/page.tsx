@@ -73,48 +73,79 @@ const companyIconList = [
   },
 ] as const;
 
-const blockChainList = [
+const blockChainList: Array<{
+  src: string;
+  alt: string;
+  link: string;
+  name: string;
+}> = [
   {
     src: "/images/alpha.png",
     alt: "Binance Alpha",
+    link: "https://www.binance.com/en/price/fair-and-free",
     name: "Binance Alpha",
   },
   {
-    src: "/images/alpha.png",
-    alt: "Binance Alpha",
-    name: "Binance Alpha",
+    src: "/images/pancakeswap.png",
+    alt: "Pancakeswap",
+    link: "https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x6952c5408b9822295ba4a7e694d0C5FfDB8fE320&exactAmount=&exactField=INPUT",
+    name: "Pancakeswap",
   },
   {
-    src: "/images/alpha.png",
-    alt: "Binance Alpha",
-    name: "Binance Alpha",
+    src: "/images/bigget.png",
+    link: "https://www.bitget.com/zh-CN/on-chain/bnb/0x6952c5408b9822295ba4a7e694d0c5ffdb8fe320",
+    alt: "Bitget onchain",
+    name: "Bitget onchain",
   },
   {
-    src: "/images/alpha.png",
-    alt: "Binance Alpha",
-    name: "Binance Alpha",
+    src: "/images/xt.png",
+    link: "https://www.xt.com/en/trade/fair3_usdt",
+    alt: "XT.com",
+    name: "XT.com",
   },
   {
-    src: "/images/alpha.png",
-    alt: "Binance Alpha",
-    name: "Binance Alpha",
+    src: "/images/orangex.png",
+    link: "https://www.orangex.com/spot/FAIR3-USDT-SPOT",
+    alt: "OrangeX",
+    name: "OrangeX",
   },
   {
-    src: "/images/alpha.png",
-    alt: "Binance Alpha",
-    name: "Binance Alpha",
+    src: "/images/hoticon.png",
+    link: "https://www.hotcoin.com/es_ES/trade/exchange/?tradeCode=fair3_usdt",
+    alt: "Hotcoin",
+    name: "Hotcoin",
   },
   {
-    src: "/images/alpha.png",
-    alt: "Binance Alpha",
-    name: "Binance Alpha",
+    src: "/images/ourbit.png",
+    link: "https://www.ourbit.com/zh-CN/exchange/FAIR3_USDT?_from=search",
+    alt: "Ourbit",
+    name: "Ourbit",
   },
   {
-    src: "/images/alpha.png",
-    alt: "Binance Alpha",
-    name: "Binance Alpha",
+    src: "/images/ave.png",
+    link: "https://ave.ai/token/0x6952c5408b9822295ba4a7e694d0c5ffdb8fe320-bsc?from=Home",
+    alt: "Ave.ai",
+    name: "Ave.ai",
   },
-] as const;
+  {
+    src: "/images/superex.png",
+    link: "https://www.superex.com/trade/FAIR3_USDT",
+    alt: "SuperEx",
+    name: "SuperEx",
+  },
+  {
+    src: "/images/dexscreener.png",
+    link: "https://dexscreener.com/bsc/0x701232f46796855b0841df2cbf46595c00667dde",
+    alt: "Dexscreener",
+    name: "Dexscreener",
+  },
+  {
+    src: "/images/dextool.png",
+    link: "https://www.dextools.io/app/cn/token/fair3?t=1749006504249",
+    alt: "DEXtools",
+    name: "DEXtools",
+  },
+];
 
 export default function Home() {
   const handleVantaReady = () => {
@@ -128,8 +159,8 @@ export default function Home() {
         minWidth: 200.0,
         scale: 1.0,
         scaleMobile: 1.0,
-        color: "#000000",
-        color2: "#000000",
+        color: "#9C8EDF",
+        color2: "#b0a5e5",
         size: 1.4,
         backgroundColor: "#ffffff",
       });
@@ -146,12 +177,10 @@ export default function Home() {
           <div className={"2xl:w-[1440px] w-full relative"}>
             <h1
               className={
-                "mt-16 font-bold font-[Konkhmer Sleokchher] text-[58px]"
+                "mt-16 font-bold font-[Konkhmer Sleokchher] text-[58px] text-[#7c49ff]"
               }
             >
-              <span className="mr-2 text-[var(--main-color)]">FAIR</span>
-              <span className="mr-2 text-black">AND</span>
-              <span className="text-[var(--main-color)]">FREE</span>
+              FAIR AND FREE
             </h1>
             <h2
               className={
@@ -257,7 +286,7 @@ export default function Home() {
               <Button
                 className={cn(
                   titleStyle({ font: "kodchasan" }),
-                  "text-[15px] mt-9"
+                  "text-[15px] mt-9 text-white"
                 )}
               >
                 <Link href={"/foundation/justice-fund"}>Learn More</Link>
@@ -288,7 +317,7 @@ export default function Home() {
               <Button
                 className={cn(
                   titleStyle({ font: "kodchasan" }),
-                  "text-[15px] mt-9"
+                  "text-[15px] mt-9 text-white"
                 )}
               >
                 <Link href={"/foundation/tech-fairness-fund"}>Learn More</Link>
@@ -543,21 +572,20 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="2xl:w-[1440px] mt-24 gap-32 flex flex-wrap">
-          {blockChainList.map((blockChain, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center"
-            >
-              <Image
-                src={blockChain.src}
-                width={100}
-                height={100}
-                alt={blockChain.alt}
-              />
-              <span className="mt-3">{blockChain.name}</span>
-            </div>
-          ))}
+        <div className="flex w-full justify-center mt-24">
+          <div className="2xl:w-[1300px] w-full flex flex-wrap gap-32 px-10 2xl:px-0">
+            {blockChainList.map((item) => (
+              <div
+                key={item.link}
+                className="flex flex-col items-center justify-center"
+              >
+                <Image src={item.src} width={100} height={100} alt={item.alt} />
+                <Link href={item.link} className="mt-3" target="_blank">
+                  {item.name}
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>

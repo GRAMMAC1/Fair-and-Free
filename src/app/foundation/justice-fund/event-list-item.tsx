@@ -9,7 +9,7 @@ export function EventListItem() {
   return (
     <div
       className={
-        "flex py-9 w-[1238px] h-[286px] gap-12 bg-[#F4FFDF] rounded-[10px]"
+        "flex py-9 w-[1238px] h-[286px] gap-12 bg-[var(--card-bg-color)] rounded-[10px]"
       }
     >
       <Image
@@ -34,7 +34,7 @@ export function EventListItem() {
           variant={"main"}
           className={cn(
             titleStyle({ font: "kodchasan" }),
-            "text-[15px] font-normal bg-[#9AE412] w-[140px] h-[50px]"
+            "text-[15px] font-normal bg-[#7c49ff] w-[140px] h-[50px] text-white"
           )}
         >
           <Link href={"/foundation/justice-fund/1"}>View Details</Link>

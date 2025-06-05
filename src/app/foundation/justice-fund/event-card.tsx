@@ -4,10 +4,9 @@ export function EventCard({ noDesc = false }: { noDesc?: boolean }) {
   return (
     <div
       style={{
-        border: "1px solid #0000001A",
-        background: "rgba(205, 255, 113, 0.6)",
+        border: "1px solid var(--card-border-color)",
       }}
-      className="w-[290px] min-h-[228px] rounded-[10px] p-6 text-[var(--selected-text-color)]"
+      className="w-[290px] min-h-[228px] rounded-[10px] bg-[var(--card-bg-color)] p-6 text-[var(--selected-text-color)]"
     >
       <Image
         src={"/images/about/about-cto.png"}

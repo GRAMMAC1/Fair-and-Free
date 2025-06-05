@@ -48,7 +48,7 @@ const menuItemStyles = cva(
 );
 
 const triggerStyles = cva(
-  "bg-transparent p-0 h-auto font-normal text-[16px] hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent data-[active]:bg-transparent"
+  "bg-transparent! p-0 h-auto font-normal text-[16px]"
 );
 
 export default function Nav() {

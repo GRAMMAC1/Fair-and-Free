@@ -46,10 +46,20 @@
 
 :root {
   /* Page Css Var */
-  --bg-header-color: rgba(178, 178, 178, 0.19);
-  --main-color: rgba(205, 255, 113, 1);
+  --bg-header-color: #efe7fe;
+  --main-color: #9c8edf;
   --selected-text-color: rgba(53, 53, 53, 1);
   --normal-text-color: rgba(0, 0, 0, 1);
+
+  --card-bg-color: #9872ff80;
+  --card-bg-hover-color: #9a71ffcc;
+  --card-border-color: #0000001a;
+
+  --color-primary: oklch(0.685 0.125 285); /* #9C8EDF - 主题色 */
+  --color-primary-light: oklch(0.745 0.098 285); /* #b0a5e5 - 次要色 */
+  --color-primary-lighter: oklch(0.805 0.072 285); /* #c4bbec - 第三色 */
+  --color-primary-lightest: oklch(0.865 0.045 285); /* #d7d2f2 - 第四色 */
+  --color-primary-ghost: oklch(0.925 0.018 285); /* #ebe8f9 - 最浅色 */
 
   --radius: 0.625rem;
   --card: oklch(1 0 0);

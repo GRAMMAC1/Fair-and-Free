@@ -68,7 +68,7 @@ export default function DeclarationPage() {
             alt="fair3 declaration"
           />
         </div>
-        <div className="flex flex-col items-center mt-20 px-10 py-12 border-solid border-[#353535] border-[1px] rounded-[10px] bg-[#F4FFDF]">
+        <div className="flex flex-col items-center mt-20 px-10 py-12 border-solid border-[#353535] border-[1px] rounded-[10px] bg-[var(--color-primary-lightest)]">
           <h1
             className={cn("text-2xl font-extrabold font-inter color-[#353535]")}
           >

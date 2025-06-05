@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import { ChevronRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { titleStyle, normalTextStyle } from "@/shared/styles";
@@ -109,9 +110,18 @@ export default function JusticeFundPage() {
         </Button>
       </div>
       <div className="2xl:w-[1440px] mt-14">
-        <h1 className={cn(titleStyle({ font: "kodchasan" }))}>
-          Featured Events
-        </h1>
+        <div className="flex justify-between">
+          <h1 className={cn(titleStyle({ font: "kodchasan" }))}>
+            Featured Events
+          </h1>
+          <Link
+            href={"/foundation/justice-fund/events"}
+            className="flex gap-2 items-center cursor-pointer"
+          >
+            <span>View More</span>
+            <ChevronRight size={14} />
+          </Link>
+        </div>
         <div className={"flex gap-6 mt-8"}>
           <EventCard />
           <EventCard />
@@ -223,7 +233,7 @@ export default function JusticeFundPage() {
             </p>
             <Button
               variant={"main"}
-              className="mt-8"
+              className="mt-8 text-white"
               style={{ border: "1px solid var(--selected-text-color)" }}
             >
               <Link
