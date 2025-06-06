@@ -43,7 +43,7 @@ const iconList = [
   },
   {
     title: "5",
-    content: "Grants Projects",
+    content: "Partnership Projects",
     image: {
       src: "/images/home-icon3.svg",
       width: 50,
@@ -155,7 +155,7 @@ const blockChainList: Array<{
 
 export default function Home() {
   const [ready, setReady] = useState(false);
-  const { data } = useSWR<EventResponse>(`/event/gethomeEvents`, fetcher);
+  const { data } = useSWR<EventResponse>(`/event/getAllEvents`, fetcher);
 
   const { data: evevts = [] } = data || {};
 
@@ -366,9 +366,7 @@ export default function Home() {
               className={
                 "w-full h-[100px] bg-[url(/images/wave.svg)] bg-repeat-round"
               }
-            >
-              
-            </div>
+            ></div>
             <div className={"absolute flex gap-2.5 top-[-20px] left-[40px]"}>
               <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
                 <Image
@@ -614,15 +612,15 @@ export default function Home() {
         <div className="flex w-full justify-center mt-24">
           <div className="2xl:w-[1300px] 2xl:mx-0 mx-24 w-full flex flex-wrap gap-30 px-10 2xl:px-0">
             {blockChainList.map((item) => (
-              <div
+              <Link
+                href={item.link}
+                target="_blank"
                 key={item.link}
                 className="flex flex-col items-center justify-center"
               >
                 <Image src={item.src} width={100} height={100} alt={item.alt} />
-                <Link href={item.link} className="mt-3" target="_blank">
-                  {item.name}
-                </Link>
-              </div>
+                <span className="mt-3">{item.name}</span>
+              </Link>
             ))}
           </div>
         </div>

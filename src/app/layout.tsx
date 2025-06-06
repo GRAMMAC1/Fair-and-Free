@@ -65,19 +65,21 @@ export default function RootLayout({
           }
         >
           <div className={"w-[1440px] flex justify-around items-center"}>
-            <Image
-              className={"mt-1"}
-              src={"/images/header-logo.svg"}
-              width={155}
-              height={81}
-              alt={"fair3 logo"}
-            />
+            <Link href={"/"}>
+              <Image
+                className={"mt-1"}
+                src={"/images/header-logo.svg"}
+                width={155}
+                height={81}
+                alt={"fair3 logo"}
+              />
+            </Link>
             <Nav />
             <ContactLink
               Xlink={"https://x.com/Fair3_community"}
               telegramCNLink={"https://t.me/Fair3_Chinese"}
-              telegramENLink={"https://t.me/Fair3Community/252"}
               githubLink={"https://github.com/FAIR3CTO/Fair-and-Free"}
+              gitbookLink={"https://fair3.gitbook.io/fair3"}
             />
           </div>
         </header>

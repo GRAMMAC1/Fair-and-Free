@@ -21,7 +21,7 @@ interface NavItem {
 }
 
 const navList: NavItem[] = [
-  { name: "Home", href: "/" },
+  { name: "Event", href: "/" },
   { name: "Declaration", href: "/declaration" },
   {
     name: "Foundation",
@@ -40,7 +40,7 @@ const menuItemStyles = cva(
   {
     variants: {
       isActive: {
-        true: "bg-[#9871FF] font-bold text-[var(--selected-text-color)]",
+        true: "font-bold text-[var(--selected-text-color)] text-white",
         false: "hover:text-accent-foreground",
       },
     },

@@ -8,6 +8,7 @@ export function ContactLink({
   githubLink,
   telegramLink,
   Xlink,
+  gitbookLink,
 }: {
   className?: string;
   Xlink?: string;
@@ -15,6 +16,7 @@ export function ContactLink({
   telegramENLink?: string;
   githubLink?: string;
   telegramLink?: string;
+  gitbookLink?: string;
 }) {
   const renderXLink = () => {
     if (Xlink) {
@@ -86,6 +88,21 @@ export function ContactLink({
     }
   };
 
+  const renderGitbookLink = () => {
+    if (gitbookLink) {
+      return (
+        <Link href={gitbookLink} target="_blank">
+          <Image
+            src={"/images/gitbook.svg"}
+            width={20}
+            height={20}
+            alt={"Gitbook Link"}
+          />
+        </Link>
+      );
+    }
+  };
+
   return (
     <div className={`flex gap-[24px] items-center ${className}`}>
       {renderXLink()}
@@ -93,6 +110,7 @@ export function ContactLink({
       {renderTelegramENLink()}
       {renderTelegramLink()}
       {renderGithubLink()}
+      {renderGitbookLink()}
     </div>
   );
 }
