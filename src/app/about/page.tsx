@@ -36,7 +36,7 @@ export default function AboutPage() {
       <h1 className={titleStyles()}>About FAIR3</h1>
       <h2 className={subTitleStyles()}>The Birth of FAIR3</h2>
       <div className="flex justify-center mt-[113px]">
-        <div className="flex 2xl:w-[1440px]">
+        <div className="flex 2xl:w-[1440px] 2xl:mx-0 mx-24">
           <div className="flex flex-col font-normal text-[15px] text-[#353535]">
             <p>
               FAIR3 was born from a simple yet profound conviction: the world
@@ -66,7 +66,7 @@ export default function AboutPage() {
         </div>
       </div>
       <div className="flex justify-center mt-[94px]">
-        <div className="flex items-center 2xl:w-[1440px]">
+        <div className="flex items-center 2xl:w-[1440px] 2xl:mx-0 mx-24">
           <Image
             className="mr-[55px]"
             src={"/images/about/about-cto.png"}
@@ -85,7 +85,7 @@ export default function AboutPage() {
         </div>
       </div>
       <div className="flex justify-center mt-[67px]">
-        <div className="flex items-center 2xl:w-[1440px]">
+        <div className="flex items-center 2xl:w-[1440px] 2xl:mx-0 mx-24">
           <p className="font-normal text-[15px] text-[#353535]">
             In March 2025, guided by a community-wide vote, FAIR3—now fully
             governed by its community—took a decisive step forward: bridging
@@ -105,7 +105,7 @@ export default function AboutPage() {
       </div>
       <h1 className={titleStyles()}>How FAIR3 Works</h1>
       <div className={"flex justify-center mt-[70px]"}>
-        <div className="flex 2xl:w-[1440px]">
+        <div className="flex 2xl:w-[1440px] 2xl:mx-0 mx-24">
           <Image
             className="mr-[68px]"
             src={"/images/about/about-fair3works.png"}

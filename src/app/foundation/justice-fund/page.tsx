@@ -108,7 +108,7 @@ export default async function JusticeFundPage() {
           </Link>
         </Button>
       </div>
-      <div className="2xl:w-[1440px] mt-14">
+      <div className="2xl:w-[1440px] 2xl:mx-0 mx-24 mt-14">
         <div className="flex justify-between">
           <h1 className={cn(titleStyle({ font: "kodchasan" }))}>
             Featured Events
@@ -152,7 +152,7 @@ export default async function JusticeFundPage() {
         <div className={"flex justify-center gap-20 mt-16"}>
           {iconList.map((icon) => (
             <div key={icon.alt} className="flex items-center">
-              <div className="flex items-center justify-center w-[72px] h-[72px] mr-4 bg-[var(--main-color)] rounded-full">
+              <div className="flex shrink-0 items-center justify-center w-[72px] h-[72px] mr-4 bg-[var(--main-color)] rounded-full">
                 <Image
                   src={icon.image}
                   width={icon.width}
@@ -171,12 +171,14 @@ export default async function JusticeFundPage() {
         </h1>
         <div className="flex mt-7">
           <div className="flex-1">
-            <Image
-              src={"/images/justice-fund/justice.png"}
-              width={549}
-              height={265}
-              alt="justice"
-            />
+            <div className="w-[549px] h-[265px] shrink-0">
+              <Image
+                src={"/images/justice-fund/justice.png"}
+                width={549}
+                height={265}
+                alt="justice"
+              />
+            </div>
             <p className={cn(normalTextStyle(), "mt-10")}>
               The Justice Fund is designed to address real-world injustices
               swiftly and effectively. It responds to social, economic, and
@@ -191,12 +193,14 @@ export default async function JusticeFundPage() {
           <div className="ml-36 flex-1">
             {justiceFundList.map((item) => (
               <div key={item.alt} className="flex mt-10 first:mt-0">
-                <Image
-                  src={item.image}
-                  width={192}
-                  height={116}
-                  alt={item.alt}
-                />
+                <div className={'w-[192px] h-[116px] shrink-0'}>
+                  <Image
+                    src={item.image}
+                    width={192}
+                    height={116}
+                    alt={item.alt}
+                  />
+                </div>
                 <div className="ml-6">
                   <h2
                     className={cn(titleStyle({ font: "Inter" }), "text-[20px]")}
@@ -244,12 +248,14 @@ export default async function JusticeFundPage() {
               </Link>
             </Button>
           </div>
-          <Image
-            src={"/images/justice-fund/speakup.png"}
-            alt="speak up"
-            width={549}
-            height={265}
-          />
+          <div className="w-[549px] h-[265px] shrink-0">
+            <Image
+              src={"/images/justice-fund/speakup.png"}
+              alt="speak up"
+              width={549}
+              height={265}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -133,7 +133,7 @@ export default async function TechFairnessFundPage() {
           </Link>
         </Button>
       </div>
-      <div className={"2xl:w-[1440px] w-full"}>
+      <div className={"2xl:w-[1440px] 2xl:mx-0 mx-24"}>
         <div className="flex mt-16 justify-between">
           <div>
             <h1 className={cn(titleStyle({ font: "kodchasan" }))}>

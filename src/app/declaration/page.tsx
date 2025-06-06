@@ -41,7 +41,7 @@ export default function DeclarationPage() {
         right={-500}
         style={{ right: "-500px", top: "434px" }}
       />
-      <div className={"2xl:w-[1440px]"}>
+      <div className={"2xl:w-[1440px] 2xl:mx-0 mx-24"}>
         <div className={"flex mt-16"}>
           <div className={cn(titleStyle({ font: "Inter" }), "text-2xl")}>
             <h1>Redefining Fairness, from Community to the World</h1>

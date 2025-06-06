@@ -191,7 +191,7 @@ export default function Home() {
         >
           <div
             className={
-              "2xl:w-[1440px] flex flex-col justify-between w-full relative"
+              "2xl:w-[1440px] 2xl:mx-0 mx-24 flex flex-col justify-between w-full relative"
             }
           >
             <div className="mt-16">
@@ -214,7 +214,7 @@ export default function Home() {
               </p>
               <Button
                 className={
-                  "mt-9 font-[Kodchasan] text-[20px] font-bold text-black cursor-pointer bg-[#9871FF]"
+                  "mt-9 font-[Kodchasan] text-[20px] font-bold cursor-pointer bg-[#9871FF] text-white"
                 }
                 style={{
                   backdropFilter: "blur(4px)",
@@ -254,8 +254,8 @@ export default function Home() {
         <h2 className={cn(normalTextStyle(), "mt-1.5")}>
           Multisig Address：0x948d680B978874f2A57b4a904633084414282eA7
         </h2>
-        <div className="2xl:w-[1440px] mt-20">
-          <h1 className={titleStyle({ font: "kodchasan" })}>
+        <div className="2xl:w-[1440px] mt-20 2xl:mx-0 mx-24">
+          <h1 className={cn(titleStyle({ font: "kodchasan" }), "text-[20px]")}>
             Introducing the Fair3 Foundation: A Two-Pillar Approach
           </h1>
           <p className={cn(normalTextStyle(), "mt-5")}>
@@ -270,11 +270,11 @@ export default function Home() {
             Fair3 Foundation creates a dynamic ecosystem where every individual
             and every idea has a platform to thrive.
           </p>
-          <div className="w-full flex flex-wrap gap-24 mt-16 justify-center">
+          <div className="w-full flex flex-nowrap gap-24 mt-16 justify-center">
             {iconList.map(({ title, content, image }) => {
               return (
                 <div key={title} className="flex items-center">
-                  <div className="w-[65px] h-[65px] mr-6 rounded-full bg-[var(--main-color)] flex items-center justify-center">
+                  <div className="w-[65px] h-[65px] shrink-0 mr-6 rounded-full bg-[var(--main-color)] flex items-center justify-center">
                     <Image
                       src={image.src}
                       width={image.width}
@@ -293,13 +293,16 @@ export default function Home() {
             })}
           </div>
           <div className="w-full flex justify-center gap-24 mt-40">
-            <div className="flex flex-col items-center">
-              <Image
-                src={"/images/justice-fund.png"}
-                width={567}
-                height={309}
-                alt={"justice fund"}
-              />
+            <div className="flex flex-1 flex-col items-center">
+              <div className="w-[567px] h-[309px] relative shrink-0">
+                <Image
+                  src={"/images/justice-fund.png"}
+                  width={567}
+                  height={309}
+                  className="object-cover"
+                  alt={"justice fund"}
+                />
+              </div>
               <h3
                 className={cn(
                   titleStyle({ font: "Inter" }),
@@ -317,19 +320,22 @@ export default function Home() {
               <Button
                 className={cn(
                   titleStyle({ font: "kodchasan" }),
-                  "text-[15px] mt-9 text-white"
+                  "text-[15px] mt-9 text-white bg-[#9971FF]"
                 )}
               >
-                <Link href={"/foundation/justice-fund"}>Learn More</Link>
+                <Link href={"/foundation/justice-fund"}>LEARN MORE</Link>
               </Button>
             </div>
-            <div className="flex flex-col items-center">
-              <Image
-                src={"/images/fairness-fund.png"}
-                width={548}
-                height={309}
-                alt={"fairness fund"}
-              />
+            <div className="flex flex-1 flex-col items-center">
+              <div className="w-[548px] h-[309px] relative">
+                <Image
+                  src={"/images/fairness-fund.png"}
+                  width={548}
+                  height={309}
+                  className="object-cover"
+                  alt={"fairness fund"}
+                />
+              </div>
               <h3
                 className={cn(
                   titleStyle({ font: "Inter" }),
@@ -348,19 +354,21 @@ export default function Home() {
               <Button
                 className={cn(
                   titleStyle({ font: "kodchasan" }),
-                  "text-[15px] mt-9 text-white"
+                  "text-[15px] mt-9 text-white bg-[#9971FF]"
                 )}
               >
-                <Link href={"/foundation/tech-fairness-fund"}>Learn More</Link>
+                <Link href={"/foundation/tech-fairness-fund"}>LEARN MORE</Link>
               </Button>
             </div>
           </div>
-          <div className="w-full flex justify-center relative mt-[170px]">
+          <div className="w-[1440px] flex justify-center relative mt-[170px]">
             <div
               className={
                 "w-full h-[100px] bg-[url(/images/wave.svg)] bg-repeat-round"
               }
-            />
+            >
+              
+            </div>
             <div className={"absolute flex gap-2.5 top-[-20px] left-[40px]"}>
               <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
                 <Image
@@ -604,7 +612,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex w-full justify-center mt-24">
-          <div className="2xl:w-[1300px] w-full flex flex-wrap gap-32 px-10 2xl:px-0">
+          <div className="2xl:w-[1300px] 2xl:mx-0 mx-24 w-full flex flex-wrap gap-30 px-10 2xl:px-0">
             {blockChainList.map((item) => (
               <div
                 key={item.link}

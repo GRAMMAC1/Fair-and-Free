@@ -64,7 +64,7 @@ export default function RootLayout({
             "flex relative w-full h-[108px] justify-center text-[var(--normal-text-color)] bg-[var(--bg-header-color)] backdrop-blur-[3.8px] z-50"
           }
         >
-          <div className={"w-[1440px] flex justify-between items-center"}>
+          <div className={"w-[1440px] flex justify-around items-center"}>
             <Image
               className={"mt-1"}
               src={"/images/header-logo.svg"}
@@ -81,9 +81,9 @@ export default function RootLayout({
             />
           </div>
         </header>
-        {children}
+        <div>{children}</div>
         <footer className="flex justify-center mt-[110px] pb-11">
-          <div className="flex 2xl:w-[1440px] justify-between items-end text-[#353535] text-[15px] font-normal">
+          <div className="flex 2xl:w-[1440px] 2xl:mx-0 mx-24 w-full justify-between items-end text-[#353535] text-[15px] font-normal">
             <div>
               <h3 className={"font-[Konkhmer Sleokchher] text-[48px]"}>
                 FAIR3
