@@ -103,14 +103,19 @@ export const runtime = "edge";
 
 export default async function TechFairnessFundPage() {
   const data = await fetch(baseUrl + "/projects/getSelectedProjects", {
+    mode: "cors",
     next: {
       revalidate: 60,
     },
   });
+
+  if (!data.ok) {
+    console.error("Failed to fetch projects:", data);
+    throw new Error("Failed to fetch projects");
+  }
+
   const projects: ProjectResponse = await data.json();
   const { data: projectList } = projects;
-
-  console.log("Projects:", projectList);
 
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden">
