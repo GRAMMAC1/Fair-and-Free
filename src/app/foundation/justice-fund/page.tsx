@@ -90,8 +90,7 @@ export default async function JusticeFundPage() {
   });
 
   if (!data.ok) {
-    console.error("Failed to fetch events:", data);
-    throw new Error("Failed to fetch events");
+    console.error("Failed to fetch events:", JSON.stringify(data));
   }
 
   const events: EventResponse = await data.json();

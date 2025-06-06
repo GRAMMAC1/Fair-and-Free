@@ -110,8 +110,7 @@ export default async function TechFairnessFundPage() {
   });
 
   if (!data.ok) {
-    console.error("Failed to fetch projects:", data);
-    throw new Error("Failed to fetch projects");
+    console.error("Failed to fetch projects:", JSON.stringify(data));
   }
 
   const projects: ProjectResponse = await data.json();
