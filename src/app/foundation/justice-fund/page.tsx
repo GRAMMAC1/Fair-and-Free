@@ -6,11 +6,9 @@ import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { titleStyle, normalTextStyle } from "@/shared/styles";
 import { Button } from "@/components/ui/button";
-import { EventCard } from "./event-card";
 import { BackgroundBlur } from "@/shared/background-blur";
-import { baseUrl } from "@/shared/fetcher";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import type { Event } from "@/shared/types";
+import { Events } from "./events";
 
 const iconList = [
   {
@@ -76,38 +74,7 @@ export const metadata: Metadata = {
 
 export const runtime = "edge";
 
-type EventResponse = {
-  data: Event[];
-  message: string;
-  code: number;
-  success: boolean;
-};
-
 export default async function JusticeFundPage() {
-  const data = await fetch(baseUrl + "/event/getSelectedEvents", {
-    next: { revalidate: 60 },
-  });
-
-  if (!data.ok) {
-    try {
-      const resjson = await data.json();
-      console.error(resjson);
-    } catch (error) {
-      console.error("Failed to parse error response:", error);
-    }
-    console.error("Failed to fetch projects:", JSON.stringify(data), baseUrl);
-    console.error(
-      "Status code:",
-      data.status,
-      data.text,
-      data.statusText,
-      data.headers
-    );
-  }
-
-  const events: EventResponse = await data.json();
-  const { data: eventList = [] } = events || {};
-
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden">
       <BackgroundBlur
@@ -156,15 +123,7 @@ export default async function JusticeFundPage() {
         </div>
         <ScrollArea>
           <div className={"flex gap-6 mt-8"}>
-            {eventList.map((event) => (
-              <EventCard
-                id={event.id}
-                key={event.id}
-                src={event.cover}
-                title={event.title}
-                description={event.description}
-              />
-            ))}
+            <Events />
           </div>
           <ScrollBar orientation="horizontal" />
         </ScrollArea>

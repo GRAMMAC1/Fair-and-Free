@@ -18,20 +18,13 @@ export function Timer({
   format?: string;
 }) {
   const [localTime, setLocalTime] = useState<string>("");
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     const formattedTime = dayjs.utc(utcTime).tz(userTimezone).format(format);
 
     setLocalTime(formattedTime);
-    setIsLoaded(true);
   }, [utcTime, format]);
-
-  // avoid hydration not match
-  if (!isLoaded) {
-    return <p className={className}>Loading...</p>;
-  }
 
   return <p className={className}>{localTime}</p>;
 }
