@@ -89,11 +89,24 @@ export default async function JusticeFundPage() {
   });
 
   if (!data.ok) {
-    console.error("Failed to fetch events:", JSON.stringify(data), baseUrl);
+    try {
+      const resjson = await data.json();
+      console.error(resjson);
+    } catch (error) {
+      console.error("Failed to parse error response:", error);
+    }
+    console.error("Failed to fetch projects:", JSON.stringify(data), baseUrl);
+    console.error(
+      "Status code:",
+      data.status,
+      data.text,
+      data.statusText,
+      data.headers
+    );
   }
 
   const events: EventResponse = await data.json();
-  const { data: eventList = [] } = events;
+  const { data: eventList = [] } = events || {};
 
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden">

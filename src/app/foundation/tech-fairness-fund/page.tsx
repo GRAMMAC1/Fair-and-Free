@@ -109,11 +109,24 @@ export default async function TechFairnessFundPage() {
   });
 
   if (!data.ok) {
+    try {
+      const resjson = await data.json();
+      console.error(resjson);
+    } catch (error) {
+      console.error("Failed to parse error response:", error);
+    }
     console.error("Failed to fetch projects:", JSON.stringify(data), baseUrl);
+    console.error(
+      "Status code:",
+      data.status,
+      data.text,
+      data.statusText,
+      data.headers
+    );
   }
 
   const projects: ProjectResponse = await data.json();
-  const { data: projectList } = projects;
+  const { data: projectList } = projects || {};
 
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden">
