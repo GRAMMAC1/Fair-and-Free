@@ -85,12 +85,11 @@ type EventResponse = {
 
 export default async function JusticeFundPage() {
   const data = await fetch(baseUrl + "/event/getSelectedEvents", {
-    mode: "cors",
     next: { revalidate: 60 },
   });
 
   if (!data.ok) {
-    console.error("Failed to fetch events:", JSON.stringify(data));
+    console.error("Failed to fetch events:", JSON.stringify(data), baseUrl);
   }
 
   const events: EventResponse = await data.json();

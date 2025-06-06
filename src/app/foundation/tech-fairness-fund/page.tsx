@@ -103,14 +103,13 @@ export const runtime = "edge";
 
 export default async function TechFairnessFundPage() {
   const data = await fetch(baseUrl + "/projects/getSelectedProjects", {
-    mode: "cors",
     next: {
       revalidate: 60,
     },
   });
 
   if (!data.ok) {
-    console.error("Failed to fetch projects:", JSON.stringify(data));
+    console.error("Failed to fetch projects:", JSON.stringify(data), baseUrl);
   }
 
   const projects: ProjectResponse = await data.json();
