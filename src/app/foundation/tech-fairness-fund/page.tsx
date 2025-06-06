@@ -6,11 +6,9 @@ import { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import { titleStyle, normalTextStyle } from "@/shared/styles";
 import { Button } from "@/components/ui/button";
-import { ProjectCard } from "./project-card";
 import { BackgroundBlur } from "@/shared/background-blur";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { baseUrl } from "@/shared/fetcher";
-import type { ProjectResponse } from "@/shared/types";
+import { Projects } from "./projects";
 
 const imageList = [
   {
@@ -102,21 +100,6 @@ export const metadata: Metadata = {
 export const runtime = "edge";
 
 export default async function TechFairnessFundPage() {
-  const data = await fetch(baseUrl + "/projects/getSelectedProjects", {
-    mode: "cors",
-    next: {
-      revalidate: 60,
-    },
-  });
-
-  if (!data.ok) {
-    console.error("Failed to fetch projects:", data);
-    throw new Error("Failed to fetch projects");
-  }
-
-  const projects: ProjectResponse = await data.json();
-  const { data: projectList } = projects;
-
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden">
       <BackgroundBlur
@@ -171,17 +154,7 @@ export default async function TechFairnessFundPage() {
         </div>
         <ScrollArea className="mt-9">
           <div className="flex gap-6">
-            {projectList.map((project) => (
-              <ProjectCard
-                key={project.id}
-                id={project.id}
-                title={project.projectName}
-                oneLiner={project.oneLiner}
-                githubLink={project.githubLink}
-                twitterLink={project.twitterLink}
-                telegramLink={project.telegramLink}
-              />
-            ))}
+            <Projects />
           </div>
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
