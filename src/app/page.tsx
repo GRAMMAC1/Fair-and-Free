@@ -153,6 +153,90 @@ const blockChainList: Array<{
   },
 ];
 
+const mileStones = [
+  {
+    title: "FAIR³ Launched on Solana",
+    date: "02/03/2025",
+    image: {
+      src: "/images/celebrate.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "Community Take Over(CTO)",
+    date: "02/10/2025",
+    image: {
+      src: "/images/takeover.svg",
+      width: 30,
+      height: 28,
+    },
+  },
+  {
+    title: "WangXin joins the CTO Team",
+    date: "02/14/2025",
+    image: {
+      src: "/images/cto.svg",
+      width: 30,
+      height: 28,
+    },
+  },
+  {
+    title: "FAIR³ New Visual Identity",
+    date: "03/04/2025",
+    image: {
+      src: "/images/identity.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "Migrated To BNB Chain",
+    date: "03/19/2025",
+    image: {
+      src: "/images/chain.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "Four.meme Join the CTO Team",
+    date: "04/09/2025",
+    image: {
+      src: "/images/cto.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "Bitget VOXEL Event Airdrop",
+    date: "04/16/2025",
+    image: {
+      src: "/images/airdrop.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "JD Takeout Incident Airdrop",
+    date: "04/18/2025",
+    image: {
+      src: "/images/airdrop.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "Introducing the Goddess of Justice Fund & Tech Fairness Fund",
+    date: "05/15/2025",
+    image: {
+      src: "/images/justice.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+] as const;
+
 export default function Home() {
   const [ready, setReady] = useState(false);
   const { data } = useSWR<EventResponse>(`/event/getAllEvents`, fetcher);
@@ -367,7 +451,75 @@ export default function Home() {
                 "w-full h-[100px] bg-[url(/images/wave.svg)] bg-repeat-round"
               }
             ></div>
-            <div className={"absolute flex gap-2.5 top-[-20px] left-[40px]"}>
+            <div className="absolute inset-0 flex items-center justify-between px-4 md:px-8 lg:px-16">
+              {mileStones.map((milestone, index) => {
+                const isAbove = index % 2 === 0;
+                const baseOffset = isAbove ? -70 : 70; // 基础偏移量，上方为负值，下方为正值
+                const progress = index / (mileStones.length - 1);
+                // 根据您的路径特征调整曲线
+                let waveOffset = 0;
+                if (progress <= 0.2) {
+                  // 开始段：从高到低
+                  waveOffset = 30 - progress * 5 * 40;
+                } else if (progress <= 0.6) {
+                  // 中间段：低点区域
+                  waveOffset =
+                    -20 + Math.sin((progress - 0.2) * Math.PI * 2.5) * 15;
+                } else {
+                  // 结束段：回升
+                  waveOffset = -10 + (progress - 0.6) * 2.5 * 30;
+                }
+
+                console.log(progress);
+
+                const finalOffset =
+                  baseOffset + (isAbove ? waveOffset : -waveOffset);
+
+                return (
+                  <div
+                    key={milestone.title}
+                    className="flex flex-col items-center"
+                    style={{
+                      transform: `translateY(${finalOffset}px)`,
+                      flex: "0 0 auto",
+                      width: `${100 / mileStones.length}%`,
+                    }}
+                  >
+                    <div className={`flex items-center`}>
+                      <div className="flex mr-2.5 w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center shrink-0">
+                        <Image
+                          src={milestone.image.src}
+                          width={milestone.image.width}
+                          height={milestone.image.height}
+                          className="md:w-[30px] md:h-[30px]"
+                          alt={milestone.title}
+                        />
+                      </div>
+                      <div className="">
+                        <h1
+                          className={cn(
+                            titleStyle({ font: "kodchasan" }),
+                            "text-[15px] overflow-hidden line-clamp-3"
+                          )}
+                          title={milestone.title}
+                        >
+                          {milestone.title}
+                        </h1>
+                        <p
+                          className={cn(
+                            normalTextStyle(),
+                            "mt-2.5 text-[15px]"
+                          )}
+                        >
+                          {milestone.date}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {/* <div className={"absolute flex gap-2.5 top-[-20px] left-[40px]"}>
               <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
                 <Image
                   src={"/images/celebrate.svg"}
@@ -433,10 +585,10 @@ export default function Home() {
             <div className="absolute flex gap-2.5 top-[65px] left-[465px]">
               <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
                 <Image
-                  src={"/images/chain.svg"}
+                  src={"/images/identity.svg"}
                   width={30}
                   height={30}
-                  alt="BNB Chain"
+                  alt="FAIR³ New Visual Identity"
                   quality={100}
                 />
               </div>
@@ -562,7 +714,7 @@ export default function Home() {
                 </h1>
                 <p className={cn(normalTextStyle(), "mt-2.5")}>05/15/2025</p>
               </div>
-            </div>
+            </div> */}
             {/* <div className="absolute flex gap-2.5 top-[-20px] left-[1145px]">
               <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
                 <Image
