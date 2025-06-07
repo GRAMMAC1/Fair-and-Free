@@ -155,7 +155,7 @@ const blockChainList: Array<{
 
 export default function Home() {
   const [ready, setReady] = useState(false);
-  const { data } = useSWR<EventResponse>(`/event/getAllEvents`, fetcher);
+  const { data } = useSWR<EventResponse>(`/event/gethomeEvents`, fetcher);
 
   const { data: evevts = [] } = data || {};
 

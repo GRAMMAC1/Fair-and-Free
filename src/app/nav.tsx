@@ -21,7 +21,7 @@ interface NavItem {
 }
 
 const navList: NavItem[] = [
-  { name: "Event", href: "/" },
+  { name: "Event", href: "/foundation/justice-fund/events" },
   { name: "Declaration", href: "/declaration" },
   {
     name: "Foundation",
@@ -40,7 +40,7 @@ const menuItemStyles = cva(
   {
     variants: {
       isActive: {
-        true: "font-bold text-[var(--selected-text-color)] text-white",
+        true: "text-[var(--selected-text-color)]",
         false: "hover:text-accent-foreground",
       },
     },

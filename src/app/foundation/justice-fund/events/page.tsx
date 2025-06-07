@@ -47,7 +47,7 @@ export default function EventPage() {
         right={-115}
         style={{ top: "-525px", right: "-115px" }}
       />
-      <div className={"2xl:w-[1440px] w-full"}>
+      <div className={"2xl:w-[1440px] 2xl:mx-0 mx-24"}>
         <h1 className={cn(titleStyle({ font: "kodchasan" }), "text-2xl mt-16")}>
           Events
         </h1>
