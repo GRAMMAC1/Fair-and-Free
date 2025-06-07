@@ -64,16 +64,19 @@ const iconList = [
 const companyIconList = [
   {
     src: "/images/bscscan.svg",
+    link: "https://bscscan.com/token/0x6952c5408b9822295ba4a7e694d0c5ffdb8fe320",
     alt: "bscscan",
     name: "Bscscan",
   },
   {
     src: "/images/cornmarketcap.svg",
+    link: "https://coinmarketcap.com/zh-tw/currencies/fair-and-free/",
     alt: "cornmarketcap",
     name: "Coinmarketcap",
   },
   {
     src: "/images/coingecko.svg",
+    link: "https://www.coingecko.com/en/coins/fair-and-free",
     alt: "coingecko",
     name: "Coingecko",
   },
@@ -598,13 +601,15 @@ export default function Home() {
             </p>
             <div className="flex justify-center gap-16 mt-10">
               {companyIconList.map((icon) => (
-                <div
-                  className="flex gap-4 justify-center items-center"
+                <Link
+                  href={icon.link}
+                  target="_blank"
                   key={icon.name}
+                  className="flex gap-4 justify-center items-center"
                 >
                   <Image src={icon.src} width={30} height={30} alt={icon.alt} />
                   <p className={normalTextStyle()}>{icon.name}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
