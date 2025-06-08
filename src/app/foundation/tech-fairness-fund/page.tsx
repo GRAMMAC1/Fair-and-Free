@@ -164,19 +164,22 @@ export default async function TechFairnessFundPage() {
               Tech Fairness Fund
             </h1>
             <p className={cn(normalTextStyle(), "mt-5")}>
-              The Fair3 Tech Fairness Fund is dedicated to supporting developers
-              and innovators working on open-source projects, AI, and Web3
-              technologies that prioritize fairness. Through milestone-based
-              grants, this fund empowers developers to push the boundaries of
-              what’s possible in the tech world, while ensuring that their
-              innovations are grounded in principles of fairness, transparency,
-              and inclusivity. The fund plays a critical role in advancing
-              technological solutions that create a more equitable digital
-              landscape for everyone.
+              Technology for all. Innovation for good.
+              <br />
+              The Tech Fairness Fund is FAIR3’s initiative to support
+              developers, builders, and projects that advance open, inclusive,
+              and equitable technology. We believe technology should not
+              reinforce monopolies or marginalization—it should unlock access,
+              amplify potential, and serve the public good.
+              <br />
+              Whether you're optimizing an open protocol, building tools to
+              bridge digital divides, or creating infrastructure that empowers
+              underserved communities, the Tech Fairness Fund welcomes your
+              vision.
             </p>
           </div>
           <Image
-            src={"/images/fairness-fund/tech-fairness-fund.png"}
+            src={"/images/fairness-fund.png"}
             width={549}
             height={265}
             alt="Tech Fairness Fund"

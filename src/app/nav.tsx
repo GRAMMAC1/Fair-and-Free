@@ -47,7 +47,7 @@ const menuItemStyles = cva(
   }
 );
 
-const triggerStyles = cva("bg-transparent! p-0 h-auto font-normal text-[16px]");
+const triggerStyles = cva("bg-transparent h-auto  font-normal text-[16px]");
 
 export default function Nav() {
   const pathname = usePathname();
@@ -86,7 +86,7 @@ export default function Nav() {
                   {child.name}
                 </Link>
                 <div
-                  className={`w-[7px] h-[7px] rounded-full bg-[#FF2C2C] opacity-0 transition-opacity`}
+                  className={`w-[7px] h-[7px] rounded-full bg-white opacity-0 transition-opacity`}
                 />
               </div>
             ))}

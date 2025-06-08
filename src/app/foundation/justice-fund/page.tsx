@@ -131,19 +131,23 @@ export default async function JusticeFundPage() {
           <div className="mr-16">
             <h1 className={titleStyle({ font: "kodchasan" })}>Justice Fund</h1>
             <p className={cn(normalTextStyle(), "mt-5")}>
-              The Justice Fund is designed to address real-world injustices
-              swiftly and effectively. It responds to social, economic, and
-              political issues, empowering individuals and communities who face
-              unfair treatment. By launching events, creating tools, and
-              developing solutions, this fund aims to promote systemic change
-              and evolution through narrative-driven justice initiatives. We
-              focus on giving a voice to those who need it most, whether it’s a
-              personal injustice or a broader societal issue. Through this fund,
-              we advocate for fairness in all forms.
+              Upholding voices. Defending fairness.
+              <br />
+              The Justice Goddess Fund is FAIR3’s dedicated arm for defending
+              those who speak truth to power. Rooted in our belief that fairness
+              begins with courage, this fund supports individuals, collectives,
+              and projects that challenge injustice, advocate for transparency,
+              and protect freedom of expression—especially in environments where
+              doing so comes at great personal risk.
+              <br />
+              We stand with the whistleblowers, the truth-tellers, the forgotten
+              voices. Through direct funding, public advocacy, and open
+              community support, the Justice Goddess Fund empowers those who
+              dare to ask: What if the world could be fairer?
             </p>
           </div>
           <Image
-            src={"/images/justice-fund/fund.png"}
+            src={"/images/justice-fund.png"}
             width={549}
             height={265}
             alt="Justice Fund"
@@ -167,7 +171,7 @@ export default async function JusticeFundPage() {
           ))}
         </div>
         <h1 className={cn(titleStyle({ font: "kodchasan" }), "mt-24")}>
-          Justice Fund
+          Mission & Directions
         </h1>
         <div className="flex mt-7">
           <div className="flex-1">
@@ -193,7 +197,7 @@ export default async function JusticeFundPage() {
           <div className="ml-36 flex-1">
             {justiceFundList.map((item) => (
               <div key={item.alt} className="flex mt-10 first:mt-0">
-                <div className={'w-[192px] h-[116px] shrink-0'}>
+                <div className={"w-[192px] h-[116px] shrink-0"}>
                   <Image
                     src={item.image}
                     width={192}
