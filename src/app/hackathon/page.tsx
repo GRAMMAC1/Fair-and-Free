@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { titleStyle, normalTextStyle } from "@/shared/styles";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const Separator = ({ className = "" }: { className?: string }) => (
   <div
@@ -30,6 +32,18 @@ export default function HackathonPage() {
           FAIR3 Hackathon: Building tech fairness through transparent
           algorithms, data ownership and sustainable income.
         </h2>
+        <Button className="w-[260px] my-0 mt-20 rounded-4xl bg-[#9971FF] mx-auto">
+          <Link
+            href="https://www.hackquest.io/hackathons/Tech-Fairness-Hackathon"
+            target="_blank"
+            className={cn(
+              titleStyle({ font: "kodchasan" }),
+              "text-white text-[20px]"
+            )}
+          >
+            JOIN NOW
+          </Link>
+        </Button>
       </div>
       <div className="flex mx-24 mt-24 justify-center">
         <Image
