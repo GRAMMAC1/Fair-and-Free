@@ -49,7 +49,9 @@ const menuItemStyles = cva(
   }
 );
 
-const triggerStyles = cva("bg-transparent h-auto  font-normal text-[16px]");
+const triggerStyles = cva(
+  "bg-transparent h-auto hover:bg-[#9871FF]! hover:text-white! font-normal text-[16px] rounded-[40px]"
+);
 
 export default function Nav() {
   const pathname = usePathname();
@@ -73,8 +75,8 @@ export default function Nav() {
             {item.name}
           </NavigationMenuTrigger>
           <NavigationMenuContent
-            style={{ background: "#9871FF", zIndex: 2 }}
-            className="flex flex-col min-w-[200px] backdrop-blur-xs p-2 border rounded-md shadow-md"
+            style={{ background: "#9871FF", zIndex: 2, borderRadius: "40px" }}
+            className="flex flex-col min-w-[200px] backdrop-blur-xs p-2 shadow-md"
           >
             {item.children?.map((child) => (
               <div
@@ -83,7 +85,7 @@ export default function Nav() {
               >
                 <Link
                   href={child.href}
-                  className="block px-3 py-2 text-[16px] font-normal hover:font-bold rounded-sm"
+                  className="block px-3 py-2 text-[16px] font-normal hover:font-bold rounded-sm text-white"
                 >
                   {child.name}
                 </Link>
@@ -102,8 +104,11 @@ export default function Nav() {
         key={item.name}
         className={menuItemStyles({ isActive: active })}
       >
-        <NavigationMenuLink asChild>
-          <Link href={item.href} className="no-underline">
+        <NavigationMenuLink
+          asChild
+          className="rounded-[40px] hover:bg-[#9871FF] hover:text-white"
+        >
+          <Link href={item.href} className="no-underline py-2 px-4">
             {item.name}
           </Link>
         </NavigationMenuLink>
