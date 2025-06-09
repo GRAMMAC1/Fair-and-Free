@@ -8,6 +8,7 @@ import {
   NavigationMenu,
   NavigationMenuList,
   NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuTrigger,
   NavigationMenuContent,
 } from "@/components/ui/navigation-menu";
@@ -21,7 +22,8 @@ interface NavItem {
 }
 
 const navList: NavItem[] = [
-  { name: "Event", href: "/foundation/justice-fund/events" },
+  { name: "Hackathon", href: "/hackathon" },
+  { name: "Events", href: "/foundation/justice-fund/events" },
   { name: "Declaration", href: "/declaration" },
   {
     name: "Foundation",
@@ -100,9 +102,11 @@ export default function Nav() {
         key={item.name}
         className={menuItemStyles({ isActive: active })}
       >
-        <Link href={item.href} className="no-underline">
-          {item.name}
-        </Link>
+        <NavigationMenuLink asChild>
+          <Link href={item.href} className="no-underline">
+            {item.name}
+          </Link>
+        </NavigationMenuLink>
       </NavigationMenuItem>
     );
   };
