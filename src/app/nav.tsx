@@ -118,7 +118,7 @@ export default function Nav() {
 
   return (
     <NavigationMenu viewport={false}>
-      <NavigationMenuList className="flex gap-[74px] text-[16px] font-normal">
+      <NavigationMenuList className="flex gap-6 text-[16px] font-normal">
         {navList.map(renderNavItem)}
       </NavigationMenuList>
     </NavigationMenu>

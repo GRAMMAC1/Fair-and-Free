@@ -64,8 +64,8 @@ export default function RootLayout({
             "flex relative w-full h-[108px] justify-center text-[var(--normal-text-color)] bg-[var(--bg-header-color)] backdrop-blur-[3.8px] z-50"
           }
         >
-          <div className={"w-[1440px] flex justify-around items-center"}>
-            <Link href={"/"}>
+          <div className={"w-[1440px] flex justify-between items-center"}>
+            <Link href={"/"} className="shrink-0">
               <Image
                 className={"mt-1"}
                 src={"/images/header-logo.svg"}
