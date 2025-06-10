@@ -72,7 +72,7 @@ export default function HackathonPage() {
             <h1
               className={cn(
                 titleStyle({ font: "kodchasan" }),
-                "mt-20 font-semibold"
+                "mt-10 font-semibold"
               )}
             >
               1.What is the FAIR3 Hackathon?
@@ -88,7 +88,7 @@ export default function HackathonPage() {
             <h1
               className={cn(
                 titleStyle({ font: "kodchasan" }),
-                "mt-20 font-semibold"
+                "mt-10 font-semibold"
               )}
             >
               2.What kinds of projects can I submit?
@@ -97,7 +97,7 @@ export default function HackathonPage() {
               Anything that aligns with the idea of “tech fairness.” Some
               examples include:
             </p>
-            <ul className="flex flex-col gap-4 mt-8 list-disc">
+            <ul className="flex flex-col gap-4 mt-8 ml-5 list-disc">
               <li>Tools for algorithm transparency or explainability</li>
               <li>Solutions for data sovereignty and self-ownership</li>
               <li>Creator income models in an AI-automated world</li>
@@ -116,7 +116,7 @@ export default function HackathonPage() {
             <h1
               className={cn(
                 titleStyle({ font: "kodchasan" }),
-                "font-semibold mt-20"
+                "font-semibold mt-10"
               )}
             >
               3.Who can participate?
@@ -124,7 +124,7 @@ export default function HackathonPage() {
             <p className={cn(normalTextStyle(), "text-[#64636A] mt-6")}>
               You can join as:
             </p>
-            <ul className="flex flex-col gap-4 mt-8 list-disc">
+            <ul className="flex flex-col gap-4 mt-8 ml-5 list-disc">
               <li>A solo builder</li>
               <li>A team (up to 5 members recommended)</li>
               <li>A collective or DAO subgroup</li>
@@ -142,7 +142,7 @@ export default function HackathonPage() {
             <h1
               className={cn(
                 titleStyle({ font: "kodchasan" }),
-                "font-semibold mt-20 max-w-[500px]"
+                "font-semibold mt-10 max-w-[500px]"
               )}
             >
               4.Do I have to be technical to participate?
@@ -162,12 +162,12 @@ export default function HackathonPage() {
             <h1
               className={cn(
                 titleStyle({ font: "kodchasan" }),
-                "font-semibold mt-20"
+                "font-semibold mt-10"
               )}
             >
               5.What do I need to submit?
             </h1>
-            <ul className="flex flex-col gap-4 mt-8 list-disc">
+            <ul className="flex flex-col gap-4 mt-8 ml-5 list-disc">
               <li>Project information form</li>
               <li>One-pager or Notion explaining the idea</li>
               <li>Code repo (GitHub preferred)</li>
@@ -181,12 +181,12 @@ export default function HackathonPage() {
             <h1
               className={cn(
                 titleStyle({ font: "kodchasan" }),
-                "font-semibold mt-20"
+                "font-semibold mt-10"
               )}
             >
               6. What are the prizes?
             </h1>
-            <ul className="flex flex-col gap-4 mt-8 list-disc">
+            <ul className="flex flex-col gap-4 mt-8 ml-5 list-disc">
               <li>Main Track: 9 winners × $2,000 in FAIR3 tokens = $18,000</li>
               <li>
                 Community Prizes: 4 winners × $2,500 in FAIR3 tokens = $10,000
