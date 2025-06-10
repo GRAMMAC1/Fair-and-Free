@@ -80,19 +80,19 @@ export default function MobilePage() {
     <div className="flex flex-col items-center text-[#353535]">
       {/* 移动端主要内容区域 */}
       <div className="w-full bg-gradient-to-b from-white/90 to-white/60 backdrop-blur-sm">
-        <div className="px-4 py-8">
-          <div className="text-center">
-            <h1 className="font-bold font-[Konkhmer Sleokchher] text-[32px] text-[#7c49ff]">
+        <div className="px-4 py-12">
+          <div className="text-center" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <h1 className="font-bold font-[Konkhmer Sleokchher] text-[36px] text-[#7c49ff] leading-tight mb-6" style={{ fontSize: "48px" }}>
               FAIR AND FREE
             </h1>
-            <h2 className="mt-4 font-bold font-[Kodchasan] text-[18px] leading-tight">
+            <h2 className="max-w-[280px] mx-auto font-bold text-[16px] font-[Kodchasan] text-[#353535] leading-[1.1]">
               Back Builders. Defend Justice. Own the Future.
             </h2>
-            <p className="mt-4 text-black font-normal text-[12px] px-2">
+            <p className="mt-8 text-[#353535] font-normal text-[12px] px-2 break-all leading-relaxed">
               BNB Chain CA:0x6952c5408b9822295ba4a7e694d0c5ffdb8fe320
             </p>
             <Button
-              className="mt-6 font-[Kodchasan] text-[14px] font-bold cursor-pointer bg-[#9871FF] text-white px-6 py-3 rounded-full"
+              className="mt-8 font-[Kodchasan] text-[16px] font-bold cursor-pointer bg-[#9871FF] hover:bg-[#8660FF] text-white px-10 py-4 rounded-full transition-all duration-200 shadow-lg"
               style={{ backdropFilter: "blur(4px)" }}
             >
               <Link
@@ -106,46 +106,61 @@ export default function MobilePage() {
         </div>
       </div>
 
-      {/* 移动端统计数据 */}
-      <div className="w-full px-4 mt-6">
-        <div className="grid grid-cols-2 gap-3">
-          {iconList.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center p-4 bg-white/70 backdrop-blur-sm rounded-2xl border border-white/50 shadow-sm"
-            >
-              <Image
-                src={item.image.src}
-                width={item.image.width}
-                height={item.image.height}
-                alt={item.content}
-              />
-              <div className="text-[18px] font-bold text-[#7c49ff] mt-2">
-                {item.title}
-              </div>
-              <div className="text-[11px] text-center mt-1 text-gray-600">
-                {item.content}
-              </div>
+      <div className="w-full px-4 mt-8 flex justify-center">
+        <div className="w-full max-w-md flex flex-col items-start" style={{ width: "100%", padding: "0 10%" }}>
+          <h1 className={cn(titleStyle({ font: "kodchasan" }), "mt-8 text-[24px] text-left font-bold")}>
+            The FAIR3 Foundation
+          </h1>
+          <h2 className={cn(normalTextStyle(), "mt-3 text-[14px] text-left text-[#666]")}>
+            Multisig Address：
+          </h2>
+          <p className="text-[14px] text-[#666] break-all leading-relaxed">
+            0x948d680B978874f2A57b4a904633084414282eA7
+          </p>
+          <div className="w-full mt-8">
+            <h1 className={cn(titleStyle({ font: "kodchasan" }), "text-[20px] font-bold")}>
+              Introducing the Fair3 Foundation: A Two-Pillar Approach
+            </h1>
+            <p className={cn(normalTextStyle(), "mt-4 text-[14px] leading-relaxed")}>
+              The Fair3 Foundation is built on a vision of fairness, transparency,
+              and empowerment.
+            </p>
+            <p className={cn(normalTextStyle(), "mt-3 text-[14px] leading-relaxed")}>
+              We believe that both technology and social justice need to evolve
+              hand-in-hand, which is why we've established a dual-pillar approach to drive
+              positive change in these critical areas.
+            </p>
+            <p className={cn(normalTextStyle(), "mt-3 text-[14px] leading-relaxed")}>
+              By focusing on both social justice and technological innovation, the
+              Fair3 Foundation creates a dynamic ecosystem where every individual
+              and every idea has a platform to thrive.
+            </p>
+            <div className="w-full grid grid-cols-2 gap-4 mt-16">
+              {iconList.map(({ title, content, image }) => {
+                return (
+                  <div key={title} className="flex items-center gap-3 p-3">
+                    <div className="w-[48px] h-[48px] shrink-0 rounded-full bg-[#9871FF] flex items-center justify-center">
+                      <Image
+                        src={image.src}
+                        width={Math.floor(image.width * 0.8)}
+                        height={Math.floor(image.height * 0.8)}
+                        alt={title}
+                        className="brightness-0 invert"
+                      />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className={cn(titleStyle({ font: "Inter" }), "text-[18px] leading-tight")}>
+                        {title}
+                      </h3>
+                      <p className={cn(normalTextStyle(), "text-[12px] leading-tight")}>{content}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* 最新事件（如果有） */}
-      {events.length > 0 && (
-        <div className="w-full px-4 mt-8">
-          <h3 className={cn(titleStyle({ font: "kodchasan" }), "text-[20px] mb-4")}>
-            Latest Events
-          </h3>
-          <div className="space-y-3">
-            {events.slice(0, 3).map((event) => (
-              <div key={event.id} className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-white/50">
-                <EventCard {...event} />
-              </div>
-            ))}
           </div>
         </div>
-      )}
+      </div>
 
       {/* 移动端购买链接 */}
       <div className="w-full px-4 mt-8">

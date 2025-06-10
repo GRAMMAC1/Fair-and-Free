@@ -1,7 +1,7 @@
 "use client";
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Kodchasan } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -21,6 +21,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const kodchasan = Kodchasan({
+  variable: "--font-kodchasan",
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
 });
 
 // 移动端导航数据
@@ -343,7 +349,7 @@ export default function RootLayout({
   if (!mounted) {
     return (
       <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}>
+        <body className={`${geistSans.variable} ${geistMono.variable} ${kodchasan.variable} antialiased relative`}>
           <div className="flex items-center justify-center min-h-screen">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#7c49ff]"></div>
           </div>
