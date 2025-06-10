@@ -162,6 +162,83 @@ export default function MobilePage() {
         </div>
       </div>
 
+      <div className="w-full flex flex-col items-center px-4 mt-16 gap-12">
+        <div className="flex flex-col items-center w-full max-w-sm">
+          <div className="w-full h-[200px] relative">
+            <Image
+              src={"/images/justice-fund.png"}
+              fill
+              className="object-cover rounded-xl"
+              alt={"justice fund"}
+            />
+          </div>
+          <h3
+            className={cn(
+              titleStyle({ font: "Inter" }),
+              "mt-6 text-[18px] text-center"
+            )}
+          >
+            Goddess of Justice Fund
+          </h3>
+          <p className={cn(normalTextStyle(), "mt-3 text-[14px] text-center leading-relaxed")}>
+            The Justice Fund is designed to address real-world injustices
+            swiftly and effectively. It responds to social, economic, and
+            political issues, empowering individuals and communities who
+            face unfair treatment.
+          </p>
+          <Button
+            className={cn(
+              titleStyle({ font: "kodchasan" }),
+              "text-[14px] mt-6 text-white bg-[#9971FF] px-6 py-3 rounded-full"
+            )}
+          >
+            <Link href={"/foundation/justice-fund"}>LEARN MORE</Link>
+          </Button>
+        </div>
+        
+        <div className="flex flex-col items-center w-full max-w-sm">
+          <div className="w-full h-[200px] relative">
+            <Image
+              src={"/images/fairness-fund.png"}
+              fill
+              className="object-cover rounded-xl"
+              alt={"fairness fund"}
+            />
+          </div>
+          <h3
+            className={cn(
+              titleStyle({ font: "Inter" }),
+              "mt-6 text-[18px] text-center"
+            )}
+          >
+            Tech Fairness Fund
+          </h3>
+          <p className={cn(normalTextStyle(), "mt-3 text-[14px] text-center leading-relaxed")}>
+            The Tech Fairness Fund invests in open, accessible, and
+            community-owned technologies that reduce entry barriers and
+            enable equitable participation in the digital economy. From
+            foundational tools to public goods, it champions digital equity
+            for all.
+          </p>
+          <Button
+            className={cn(
+              titleStyle({ font: "kodchasan" }),
+              "text-[14px] mt-6 text-white bg-[#9971FF] px-6 py-3 rounded-full"
+            )}
+          >
+            <Link href={"/foundation/tech-fairness-fund"}>LEARN MORE</Link>
+          </Button>
+        </div>
+      </div>
+
+      <div className="w-full h-[400px] flex items-center justify-center overflow-hidden" style={{ marginTop: "50px" }}>
+        <div 
+          className="w-full h-full bg-[url(/images/wave.svg)] bg-no-repeat bg-center bg-contain transform rotate-90"
+          style={{ transformOrigin: 'center center' }}
+        >
+        </div>
+      </div>
+
       {/* 移动端购买链接 */}
       <div className="w-full px-4 mt-8">
         <h3 className={cn(titleStyle({ font: "kodchasan" }), "text-[18px] text-center mb-4")}>
