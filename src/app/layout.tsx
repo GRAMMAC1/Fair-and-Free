@@ -39,7 +39,7 @@ interface NavItem {
 const navList: NavItem[] = [
   { name: "Hackathon", href: "/mobile/hackathon" },
   { name: "Events", href: "/mobile/events" },
-  { name: "Declaration", href: "/declaration" },
+  { name: "Declaration", href: "/mobile/declaration" },
   {
     name: "Foundation",
     href: "/foundation",
