@@ -231,11 +231,216 @@ export default function MobilePage() {
         </div>
       </div>
 
-      <div className="w-full h-[400px] flex items-center justify-center overflow-hidden" style={{ marginTop: "50px" }}>
+      <div className="w-full h-[400px] flex items-center justify-center overflow-hidden" style={{ marginTop: "100px", marginLeft: "-200px" }}>
         <div 
           className="w-full h-full bg-[url(/images/wave.svg)] bg-no-repeat bg-center bg-contain transform rotate-90"
           style={{ transformOrigin: 'center center' }}
         >
+        </div>
+      </div>
+
+      <div style={{ position: "relative", width: "100%", height: '100px', marginLeft: "-30px" }}>
+        <div className={"absolute flex gap-2.5 top-[-460px] left-[100px]"}>
+          <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
+            <Image
+              src={"/images/celebrate.svg"}
+              width={30}
+              height={30}
+              alt="FAIR³ Launched"
+            />
+          </div>
+          <div>
+            <h1
+              className={cn(
+                titleStyle({ font: "kodchasan" }),
+                "text-[12px]"
+              )}
+            >
+              FAIR³ Launched on Solana
+            </h1>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>02/03/2025</p>
+          </div>
+        </div>
+        
+        <div className="absolute flex gap-2.5 top-[-400px] left-[170px]">
+          <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
+            <Image
+              src={"/images/takeover.svg"}
+              width={30}
+              height={28}
+              alt="Community Take Over"
+            />
+          </div>
+          <div>
+            <h1
+              className={cn(
+                titleStyle({ font: "kodchasan" }),
+                "text-[12px]"
+              )}
+            >
+              Community Take Over(CTO)
+            </h1>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>02/10/2025</p>
+          </div>
+        </div>
+
+        <div className="absolute flex gap-2.5 top-[-340px] left-[180px]">
+            <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
+              <Image
+                src={"/images/cto.svg"}
+                width={30}
+                height={28}
+                alt="cto"
+              />
+            </div>
+            <div>
+              <h1
+                className={cn(
+                  titleStyle({ font: "kodchasan" }),
+                  "text-[12px]"
+                )}
+              >
+                WangXin joins the CTO Team
+              </h1>
+              <p className={cn(normalTextStyle(), "mt-2.5")}>02/14/2025</p>
+            </div>
+        </div>
+
+        <div className="absolute flex gap-2.5 top-[-280px] left-[170px]">
+          <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
+            <Image
+              src={"/images/chain.svg"}
+              width={30}
+              height={30}
+              alt="BNB Chain"
+              quality={100}
+            />
+          </div>
+          <div>
+            <h1
+              className={cn(
+                titleStyle({ font: "kodchasan" }),
+                "text-[12px]"
+              )}
+            >
+              FAIR³ New Visual Identity
+            </h1>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>03/04/2025</p>
+          </div>
+        </div>
+
+        <div className="absolute flex gap-2.5 top-[-220px] left-[160px]">
+          <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
+            <Image
+              src={"/images/chain.svg"}
+              width={30}
+              height={30}
+              alt="BNB Chain"
+              quality={100}
+            />
+          </div>
+          <div>
+            <h1
+              className={cn(
+                titleStyle({ font: "kodchasan" }),
+                "text-[12px]"
+              )}
+            >
+              Migrated To BNB Chain
+            </h1>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>03/19/2025</p>
+          </div>
+        </div>
+
+        <div className="absolute flex gap-2.5 top-[-160px] left-[150px]">
+          <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
+            <Image
+              src={"/images/cto.svg"}
+              width={30}
+              height={30}
+              alt="cto"
+              quality={100}
+            />
+          </div>
+          <div>
+            <h1
+              className={cn(
+                titleStyle({ font: "kodchasan" }),
+                "text-[12px]"
+              )}
+            >
+              Four.meme Join the CTO Team
+            </h1>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>04/09/2025</p>
+          </div>
+        </div>
+
+        <div className="absolute flex gap-2.5 top-[-100px] left-[140px]">
+          <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
+            <Image
+              src={"/images/airdrop.svg"}
+              width={30}
+              height={30}
+              alt="Bitget VOXEL Event Airdrop"
+              quality={100}
+            />
+          </div>
+          <div>
+            <h1
+              className={cn(
+                titleStyle({ font: "kodchasan" }),
+                "text-[12px]"
+              )}
+            >
+              Bitget VOXEL Event Airdrop
+            </h1>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>04/16/2025</p>
+          </div>
+        </div>
+
+        <div className="absolute flex gap-2.5 top-[-40px] left-[150px]">
+          <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
+            <Image
+              src={"/images/airdrop.svg"}
+              width={30}
+              height={30}
+              alt="JD Takeout Incident Airdrop"
+              quality={100}
+            />
+          </div>
+          <div>
+            <h1
+              className={cn(
+                titleStyle({ font: "kodchasan" }),
+                "text-[12px]"
+              )}
+            >
+              JD Takeout Incident Airdrop
+            </h1>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>04/23/2025</p>
+          </div>
+        </div>
+
+        <div className="absolute flex gap-2.5 top-[20px] left-[170px]">
+          <div className="flex shrink-0 w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
+            <Image
+              src={"/images/fair3.png"}
+              width={30}
+              height={30}
+              alt="Fair3 new brand launch"
+            />
+          </div>
+          <div>
+            <h1
+              className={cn(
+                titleStyle({ font: "kodchasan" }),
+                "text-[12px]"
+              )}
+            >
+              Fair3 new brand launch
+            </h1>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>06/08/2025</p>
+          </div>
         </div>
       </div>
 
