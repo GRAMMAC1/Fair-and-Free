@@ -9,8 +9,17 @@ import { cn } from "@/lib/utils";
 import { titleStyle, normalTextStyle } from "@/shared/styles";
 import { EventCard } from "../foundation/justice-fund/event-card";
 import { fetcher } from "@/shared/fetcher";
+import { Vanta } from "@/shared/vanta";
+import { useEffect, useState } from "react";
 
 import type { EventResponse } from "@/shared/types";
+
+declare global {
+  interface Window {
+    // @eslint-disable-next-line @typescript-eslint/no-explicit-any
+    VANTA: any;
+  }
+}
 
 const blockChainList: Array<{
   src: string;
@@ -134,7 +143,7 @@ const companyIconList = [
   },
   {
     src: "/images/cornmarketcap.svg",
-    link: "https://coinmarketcap.com/zh-tw/currencies/fair-and-free/",
+    link: "https://coinmarketcap.com/zh-tw/currencies/fair-and-free",
     alt: "cornmarketcap",
     name: "Coinmarketcap",
   },
@@ -147,13 +156,39 @@ const companyIconList = [
 ] as const;
 
 export default function MobilePage() {
+  const [ready, setReady] = useState(false);
   const { data } = useSWR<EventResponse>(`/event/gethomeEvents`, fetcher);
   const { data: events = [] } = data || {};
 
+  useEffect(() => {
+    if (window.VANTA)
+      window.VANTA.GLOBE({
+        el: "#vanta-container",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: "#9C8EDF",
+        color2: "#b0a5e5",
+        size: 1.4,
+        backgroundColor: "#ffffff",
+      });
+  }, [ready]);
+
+  const handleVantaReady = () => {
+    setReady(true);
+  };
+
   return (
     <div className="flex flex-col items-center text-[#353535]">
+      <Vanta onReady={handleVantaReady} />
       {/* 移动端主要内容区域 */}
-      <div className="w-full bg-gradient-to-b from-white/90 to-white/60 backdrop-blur-sm">
+      <div className="w-full bg-gradient-to-b from-white/90 to-white/60 backdrop-blur-sm"
+      id="vanta-container"
+      >
         <div className="px-4 py-12">
           <div className="text-center" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <h1 className="font-bold font-[Konkhmer Sleokchher] text-[36px] text-[#7c49ff] leading-tight mb-6" style={{ fontSize: "48px" }}>
@@ -248,7 +283,7 @@ export default function MobilePage() {
           </div>
           <h3
             className={cn(
-              titleStyle({ font: "Inter" }),
+              titleStyle({ font: "kodchasan" }),
               "mt-6 text-[18px] text-center"
             )}
           >
@@ -281,7 +316,7 @@ export default function MobilePage() {
           </div>
           <h3
             className={cn(
-              titleStyle({ font: "Inter" }),
+              titleStyle({ font: "kodchasan" }),
               "mt-6 text-[18px] text-center"
             )}
           >
@@ -317,32 +352,10 @@ export default function MobilePage() {
         <div className={"absolute flex gap-2.5 top-[-460px] left-[100px]"}>
           <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
             <Image
-              src={"/images/celebrate.svg"}
+              src={"/images/takeover.svg"}
               width={30}
               height={30}
               alt="FAIR³ Launched"
-            />
-          </div>
-          <div>
-            <h1
-              className={cn(
-                titleStyle({ font: "kodchasan" }),
-                "text-[12px]"
-              )}
-            >
-              FAIR³ Launched on Solana
-            </h1>
-            <p className={cn(normalTextStyle(), "mt-2.5")}>02/03/2025</p>
-          </div>
-        </div>
-        
-        <div className="absolute flex gap-2.5 top-[-400px] left-[170px]">
-          <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
-            <Image
-              src={"/images/takeover.svg"}
-              width={30}
-              height={28}
-              alt="Community Take Over"
             />
           </div>
           <div>
@@ -357,11 +370,33 @@ export default function MobilePage() {
             <p className={cn(normalTextStyle(), "mt-2.5")}>02/10/2025</p>
           </div>
         </div>
+        
+        <div className="absolute flex gap-2.5 top-[-400px] left-[170px]">
+          <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
+            <Image
+              src={"/images/cto.svg"}
+              width={30}
+              height={28}
+              alt="Community Take Over"
+            />
+          </div>
+          <div>
+            <h1
+              className={cn(
+                titleStyle({ font: "kodchasan" }),
+                "text-[12px]"
+              )}
+            >
+              WangXin joins the CTO Team
+            </h1>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>02/14/2025</p>
+          </div>
+        </div>
 
         <div className="absolute flex gap-2.5 top-[-340px] left-[180px]">
             <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
               <Image
-                src={"/images/cto.svg"}
+                src={"/images/chain.svg"}
                 width={30}
                 height={28}
                 alt="cto"
@@ -374,16 +409,16 @@ export default function MobilePage() {
                   "text-[12px]"
                 )}
               >
-                WangXin joins the CTO Team
+                Migrated To BNB Chain
               </h1>
-              <p className={cn(normalTextStyle(), "mt-2.5")}>02/14/2025</p>
+              <p className={cn(normalTextStyle(), "mt-2.5")}>03/19/2025</p>
             </div>
         </div>
 
         <div className="absolute flex gap-2.5 top-[-280px] left-[170px]">
           <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
             <Image
-              src={"/images/chain.svg"}
+              src={"/images/celebrate.svg"}
               width={30}
               height={30}
               alt="BNB Chain"
@@ -397,9 +432,9 @@ export default function MobilePage() {
                 "text-[12px]"
               )}
             >
-              FAIR³ New Visual Identity
+              Web3 rap <span>Fight For Fair</span> is launched
             </h1>
-            <p className={cn(normalTextStyle(), "mt-2.5")}>03/04/2025</p>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>03/29/2025</p>
           </div>
         </div>
 
@@ -420,9 +455,9 @@ export default function MobilePage() {
                 "text-[12px]"
               )}
             >
-              Migrated To BNB Chain
+              Listing on Binance Alpha
             </h1>
-            <p className={cn(normalTextStyle(), "mt-2.5")}>03/19/2025</p>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>04/09/2025</p>
           </div>
         </div>
 
@@ -468,7 +503,7 @@ export default function MobilePage() {
             >
               Bitget VOXEL Event Airdrop
             </h1>
-            <p className={cn(normalTextStyle(), "mt-2.5")}>04/16/2025</p>
+            <p className={cn(normalTextStyle(), "mt-2.5")}>04/21/2025</p>
           </div>
         </div>
 

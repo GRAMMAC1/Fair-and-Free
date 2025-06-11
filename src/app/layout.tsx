@@ -42,13 +42,13 @@ const navList: NavItem[] = [
   { name: "Declaration", href: "/mobile/declaration" },
   {
     name: "Foundation",
-    href: "/foundation",
+    href: "",
     children: [
-      { name: "Justice Fund", href: "/foundation/justice-fund" },
-      { name: "Tech Fairness Fund", href: "/foundation/tech-fairness-fund" },
+      { name: "Justice Fund", href: "/mobile/foundation/justice-fund" },
+      { name: "Tech Fairness Fund", href: "/mobile/foundation/tech-fairness-fund" },
     ],
   },
-  { name: "About", href: "/about" },
+  { name: "About", href: "/mobile/about" },
 ];
 
 // 移动端Layout组件
@@ -80,7 +80,7 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
       {/* 移动端头部 */}
       <header className="sticky top-0 z-50 w-full h-16 bg-[var(--bg-header-color)] backdrop-blur-[3.8px] border-b border-gray-200/20">
         <div className="flex items-center justify-between h-full px-4">
-          <Link href="/" className="flex-shrink-0">
+          <Link href="/mobile" className="flex-shrink-0">
             <Image
               src="/images/header-logo.svg"
               width={80}
@@ -161,7 +161,7 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
                   <div className="flex justify-center">
                     <ContactLink
                       Xlink="https://x.com/Fair3_community"
-                      telegramCNLink="https://t.me/Fair3_Chinese"
+                      telegramCNLink="https://t.me/FAIR3_CTO_COMMUNITY"
                       githubLink="https://github.com/FAIR3CTO/Fair-and-Free"
                       gitbookLink="https://fair3.gitbook.io/fair3"
                     />
