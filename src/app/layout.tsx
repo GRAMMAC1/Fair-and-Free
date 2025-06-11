@@ -307,7 +307,7 @@ function DesktopLayout({ children }: { children: React.ReactNode }) {
           <Nav />
           <ContactLink
             Xlink={"https://x.com/Fair3_community"}
-            telegramCNLink={"https://t.me/Fair3_Chinese"}
+            telegramCNLink={"https://t.me/FAIR3_CTO_COMMUNITY"}
             githubLink={"https://github.com/FAIR3CTO/Fair-and-Free"}
             gitbookLink={"https://fair3.gitbook.io/fair3"}
           />

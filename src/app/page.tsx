@@ -449,7 +449,7 @@ export default function Home() {
                     "text-[15px] w-[200px]"
                   )}
                 >
-                  {"03/29/2025: Web3 rap <Fight For Fair> is launched"}
+                  {"Web3 rap <Fight For Fair> is launched"}
                 </h1>
                 <p className={cn(normalTextStyle(), "mt-2.5")}>03/29/2025</p>
               </div>
