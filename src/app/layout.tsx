@@ -180,9 +180,9 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
 
       {/* 移动端页脚 */}
       <footer className="bg-white/80 backdrop-blur-sm border-t border-gray-200/30 mt-8">
-        <div className="px-4 py-6">
-          <div className="text-center">
-            <h3 className="font-[Konkhmer Sleokchher] text-[24px] text-[#7c49ff]">
+        <div className="px-4 py-8">
+          <div className="text-left">
+            <h3 className="font-[Konkhmer Sleokchher] text-[32px] text-[#000] font-bold leading-tight">
               FAIR3
             </h3>
             <div className="mt-4 text-[12px] text-[#353535]">
@@ -190,41 +190,80 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
           
-          <div className="mt-6">
-            <h4 className="font-bold font-[Kodchasan] text-[14px] text-center text-[#000] mb-3">
+          <div className="mt-8">
+            <h4 className="font-bold font-[Kodchasan] text-[20px] text-[#000] mb-6">
               Contact Us
             </h4>
-            <div className="space-y-2">
-              <Link
-                href="https://t.me/ElaraFair3Community"
-                target="_blank"
-                className="flex items-center justify-center gap-2 py-2 hover:bg-white/30 rounded-lg transition-colors duration-200"
-              >
+            <div className="flex flex-col gap-4">
+              <div className="flex gap-4">
+                <Link
+                  href="https://t.me/ElaraFair3Community"
+                  target="_blank"
+                  className="flex items-center gap-2"
+                >
+                  <Image
+                    src="/images/telegram.svg"
+                    width={16}
+                    height={16}
+                    alt="Telegram"
+                  />
+                  <span className="text-[12px] text-[#000]">@ElaraFair3Community</span>
+                </Link>
+                <Link
+                  href="https://t.me/KieranFair3Community"
+                  target="_blank"
+                  className="flex items-center gap-2"
+                >
+                  <Image
+                    src="/images/telegram.svg"
+                    width={16}
+                    height={16}
+                    alt="Telegram"
+                  />
+                  <span className="text-[12px] text-[#000]">@KieranFair3Community</span>
+                </Link>
+              </div>
+            </div>
+            
+            {/* 底部社交媒体图标 */}
+            {/* <div className="flex gap-8 mt-8 pt-6 border-t border-gray-200/50">
+              <Link href="https://x.com/Fair3_community" target="_blank">
+                <Image
+                  src="/images/x.svg"
+                  width={32}
+                  height={32}
+                  alt="X"
+                  className="hover:opacity-70 transition-opacity"
+                />
+              </Link>
+              <Link href="https://t.me/ElaraFair3Community" target="_blank">
                 <Image
                   src="/images/telegram.svg"
-                  width={16}
-                  height={14}
+                  width={32}
+                  height={32}
                   alt="Telegram"
+                  className="hover:opacity-70 transition-opacity"
                 />
-                <span className="text-[12px] text-[#000]">@ElaraFair3Community</span>
               </Link>
-              <Link
-                href="https://t.me/KieranFair3Community"
-                target="_blank"
-                className="flex items-center justify-center gap-2 py-2 hover:bg-white/30 rounded-lg transition-colors duration-200"
-              >
+              <Link href="https://t.me/KieranFair3Community" target="_blank">
                 <Image
                   src="/images/telegram.svg"
-                  width={16}
-                  height={14}
+                  width={32}
+                  height={32}
                   alt="Telegram"
+                  className="hover:opacity-70 transition-opacity"
                 />
-                <span className="text-[12px] text-[#000]">@KieranFair3Community</span>
               </Link>
-            </div>
-            <div className="flex justify-center mt-4">
-              <ContactLink />
-            </div>
+              <Link href="https://github.com/FAIR3CTO/Fair-and-Free" target="_blank">
+                <Image
+                  src="/images/github.svg"
+                  width={32}
+                  height={32}
+                  alt="GitHub"
+                  className="hover:opacity-70 transition-opacity"
+                />
+              </Link>
+            </div> */}
           </div>
         </div>
       </footer>

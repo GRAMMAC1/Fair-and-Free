@@ -12,6 +12,80 @@ import { fetcher } from "@/shared/fetcher";
 
 import type { EventResponse } from "@/shared/types";
 
+const blockChainList: Array<{
+  src: string;
+  alt: string;
+  link: string;
+  name: string;
+}> = [
+  {
+    src: "/images/alpha.png",
+    alt: "Binance Alpha",
+    link: "https://www.binance.com/en/price/fair-and-free",
+    name: "Binance Alpha",
+  },
+  {
+    src: "/images/pancakeswap.png",
+    alt: "Pancakeswap",
+    link: "https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x6952c5408b9822295ba4a7e694d0C5FfDB8fE320&exactAmount=&exactField=INPUT",
+    name: "Pancakeswap",
+  },
+  {
+    src: "/images/bigget.png",
+    link: "https://www.bitget.com/zh-CN/on-chain/bnb/0x6952c5408b9822295ba4a7e694d0c5ffdb8fe320",
+    alt: "Bitget onchain",
+    name: "Bitget onchain",
+  },
+  {
+    src: "/images/xt.png",
+    link: "https://www.xt.com/en/trade/fair3_usdt",
+    alt: "XT.com",
+    name: "XT.com",
+  },
+  {
+    src: "/images/orangex.png",
+    link: "https://www.orangex.com/spot/FAIR3-USDT-SPOT",
+    alt: "OrangeX",
+    name: "OrangeX",
+  },
+  {
+    src: "/images/hoticon.png",
+    link: "https://www.hotcoin.com/es_ES/trade/exchange/?tradeCode=fair3_usdt",
+    alt: "Hotcoin",
+    name: "Hotcoin",
+  },
+  {
+    src: "/images/ourbit.png",
+    link: "https://www.ourbit.com/zh-CN/exchange/FAIR3_USDT?_from=search",
+    alt: "Ourbit",
+    name: "Ourbit",
+  },
+  {
+    src: "/images/ave.png",
+    link: "https://ave.ai/token/0x6952c5408b9822295ba4a7e694d0c5ffdb8fe320-bsc?from=Home",
+    alt: "Ave.ai",
+    name: "Ave.ai",
+  },
+  {
+    src: "/images/superex.png",
+    link: "https://www.superex.com/trade/FAIR3_USDT",
+    alt: "SuperEx",
+    name: "SuperEx",
+  },
+  {
+    src: "/images/dexscreener.png",
+    link: "https://dexscreener.com/bsc/0x701232f46796855b0841df2cbf46595c00667dde",
+    alt: "Dexscreener",
+    name: "Dexscreener",
+  },
+  {
+    src: "/images/dextool.png",
+    link: "https://www.dextools.io/app/cn/token/fair3?t=1749006504249",
+    alt: "DEXtools",
+    name: "DEXtools",
+  },
+];
+
 const iconList = [
   {
     title: "13",
@@ -449,28 +523,52 @@ export default function MobilePage() {
         <h3 className={cn(titleStyle({ font: "kodchasan" }), "text-[18px] text-center mb-4")}>
           BUY $FAIR3 TODAY
         </h3>
-        <div className="space-y-3">
+
+        <div className="w-full px-4 mt-8">
+          <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-white/50">
+            <p className="text-[11px] text-gray-600 text-center leading-relaxed">
+              LEGAL DISCLAIMER: $FAIR3 is a crypto coin with no intrinsic value or expectation of financial return. 
+              This website provides general information only and does not constitute personalized financial, investment, or legal advice.
+            </p>
+          </div>
+        </div>
+
+        <div className="flex gap-3">
           {companyIconList.map((item) => (
             <Link
               key={item.name}
               href={item.link}
               target="_blank"
-              className="flex items-center gap-3 p-4 bg-white/70 backdrop-blur-sm rounded-xl border border-white/50 hover:bg-white/80 transition-colors"
+              className="flex items-center gap-2 p-4 bg-white/70 backdrop-blur-sm rounded-xl border border-white/50 hover:bg-white/80 transition-colors flex-1"
             >
               <Image src={item.src} width={24} height={24} alt={item.alt} />
-              <span className={cn(normalTextStyle(), "text-[14px]")}>{item.name}</span>
+              <span className={cn(normalTextStyle(), "text-[12px]")}>{item.name}</span>
             </Link>
           ))}
         </div>
       </div>
 
-      {/* 免责声明 */}
-      <div className="w-full px-4 mt-8">
-        <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-white/50">
-          <p className="text-[11px] text-gray-600 text-center leading-relaxed">
-            LEGAL DISCLAIMER: $FAIR3 is a crypto coin with no intrinsic value or expectation of financial return. 
-            This website provides general information only and does not constitute personalized financial, investment, or legal advice.
-          </p>
+      <div className="flex w-full justify-center mt-24">
+        <div className="w-full max-w-sm mx-4 grid grid-cols-3 gap-8">
+          {blockChainList.map((item) => (
+            <Link
+              href={item.link}
+              target="_blank"
+              key={item.link}
+              className="flex flex-col items-center justify-center text-center"
+            >
+              <div className="w-20 h-20 mb-3 rounded-full overflow-hidden">
+                <Image 
+                  src={item.src} 
+                  width={80} 
+                  height={80} 
+                  alt={item.alt} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <span className="text-sm font-medium text-gray-700">{item.name}</span>
+            </Link>
+          ))}
         </div>
       </div>
 
