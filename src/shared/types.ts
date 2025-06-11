@@ -28,6 +28,7 @@ export interface Project {
   fundsUseDesc: string;
   githubLink?: string;
   id: number;
+  creator: string;
   mileStone: string;
   officalWeb?: string;
   oneLiner: string;

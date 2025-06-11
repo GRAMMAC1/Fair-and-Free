@@ -149,7 +149,7 @@ const blockChainList: Array<{
     name: "Dexscreener",
   },
   {
-    src: "/images/dextool.png",
+    src: "/images/dextool.svg",
     link: "https://www.dextools.io/app/cn/token/fair3?t=1749006504249",
     alt: "DEXtools",
     name: "DEXtools",

@@ -78,6 +78,7 @@ export default function ProjectPage() {
               titleStyle({ font: "kodchasan" }),
               "flex flex-col items-center cursor-pointer text-[20px]"
             )}
+            onClick={() => setCounet((prev) => prev + 12)}
           >
             View More <ChevronDown className="mt-1" size={14} />
           </span>

@@ -18,11 +18,22 @@ import "./nav.css";
 interface NavItem {
   name: string;
   href: string;
+  isLink?: boolean;
   children?: NavItem[];
 }
 
 const navList: NavItem[] = [
-  { name: "Hackathon", href: "/hackathon" },
+  {
+    name: "Hackathon",
+    href: "/hackathon",
+    isLink: true,
+    children: [
+      {
+        name: "projects",
+        href: "/hackathon/projects",
+      },
+    ],
+  },
   { name: "Events", href: "/foundation/justice-fund/events" },
   { name: "Declaration", href: "/declaration" },
   {
@@ -72,7 +83,11 @@ export default function Nav() {
           className={menuItemStyles({ isActive: active })}
         >
           <NavigationMenuTrigger className={triggerStyles()}>
-            {item.name}
+            {item.isLink ? (
+              <Link href={item.href}>{item.name}</Link>
+            ) : (
+              item.name
+            )}
           </NavigationMenuTrigger>
           <NavigationMenuContent
             style={{ background: "#9871FF", zIndex: 2, borderRadius: "40px" }}
@@ -118,7 +133,7 @@ export default function Nav() {
 
   return (
     <NavigationMenu viewport={false}>
-      <NavigationMenuList className="flex gap-6 text-[16px] font-normal">
+      <NavigationMenuList className="flex 2xl:gap-6 gap-0 text-[16px] font-normal">
         {navList.map(renderNavItem)}
       </NavigationMenuList>
     </NavigationMenu>

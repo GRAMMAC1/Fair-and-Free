@@ -45,7 +45,10 @@ const navList: NavItem[] = [
     href: "",
     children: [
       { name: "Justice Fund", href: "/mobile/foundation/justice-fund" },
-      { name: "Tech Fairness Fund", href: "/mobile/foundation/tech-fairness-fund" },
+      {
+        name: "Tech Fairness Fund",
+        href: "/mobile/foundation/tech-fairness-fund",
+      },
     ],
   },
   { name: "About", href: "/mobile/about" },
@@ -80,7 +83,7 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
       {/* 移动端头部 */}
       <header className="sticky top-0 z-50 w-full h-16 bg-[var(--bg-header-color)] backdrop-blur-[3.8px] border-b border-gray-200/20">
         <div className="flex items-center justify-between h-full px-4">
-          <Link href="/mobile" className="flex-shrink-0">
+          <Link href="/mobile" className="shrink-0">
             <Image
               src="/images/header-logo.svg"
               width={80}
@@ -89,32 +92,35 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
               className="transition-transform duration-200 hover:scale-105"
             />
           </Link>
-          
-          <AnimatedHamburger 
-            isOpen={isMenuOpen}
-            onClick={toggleMenu}
-          />
+
+          <AnimatedHamburger isOpen={isMenuOpen} onClick={toggleMenu} />
         </div>
 
         {/* 移动端菜单 */}
         {isMenuOpen && (
           <>
             {/* 菜单内容 */}
-            <div className={`fixed top-16 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-200/30 z-50 transform transition-all duration-300 ease-out ${
-              isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
-            }`}>
+            <div
+              className={`fixed top-16 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-200/30 z-50 transform transition-all duration-300 ease-out ${
+                isMenuOpen
+                  ? "translate-y-0 opacity-100"
+                  : "-translate-y-full opacity-0"
+              }`}
+            >
               <nav className="px-4 py-6">
                 <div className="space-y-4">
                   {navList.map((item, index) => (
-                    <div 
+                    <div
                       key={item.name}
                       className={`transform transition-all duration-300 ease-out ${
-                        isMenuOpen 
-                          ? 'translate-x-0 opacity-100' 
-                          : 'translate-x-4 opacity-0'
+                        isMenuOpen
+                          ? "translate-x-0 opacity-100"
+                          : "translate-x-4 opacity-0"
                       }`}
-                      style={{ 
-                        transitionDelay: isMenuOpen ? `${index * 100}ms` : '0ms' 
+                      style={{
+                        transitionDelay: isMenuOpen
+                          ? `${index * 100}ms`
+                          : "0ms",
                       }}
                     >
                       <Link
@@ -131,12 +137,14 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
                               key={child.name}
                               href={child.href}
                               className={`block py-1 text-[14px] text-gray-600 hover:text-[#7c49ff] transition-all duration-200 rounded-lg hover:bg-white/30 px-2 transform ${
-                                isMenuOpen 
-                                  ? 'translate-x-0 opacity-100' 
-                                  : 'translate-x-4 opacity-0'
+                                isMenuOpen
+                                  ? "translate-x-0 opacity-100"
+                                  : "translate-x-4 opacity-0"
                               }`}
-                              style={{ 
-                                transitionDelay: isMenuOpen ? `${(index * 100) + (childIndex * 50) + 50}ms` : '0ms' 
+                              style={{
+                                transitionDelay: isMenuOpen
+                                  ? `${index * 100 + childIndex * 50 + 50}ms`
+                                  : "0ms",
                               }}
                               onClick={toggleMenu}
                             >
@@ -148,16 +156,20 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
                     </div>
                   ))}
                 </div>
-                
+
                 {/* 移动端联系方式 */}
-                <div className={`mt-6 pt-4 border-t border-gray-200/50 transform transition-all duration-300 ease-out ${
-                  isMenuOpen 
-                    ? 'translate-y-0 opacity-100' 
-                    : 'translate-y-4 opacity-0'
-                }`}
-                style={{ 
-                  transitionDelay: isMenuOpen ? `${navList.length * 100 + 100}ms` : '0ms' 
-                }}>
+                <div
+                  className={`mt-6 pt-4 border-t border-gray-200/50 transform transition-all duration-300 ease-out ${
+                    isMenuOpen
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-4 opacity-0"
+                  }`}
+                  style={{
+                    transitionDelay: isMenuOpen
+                      ? `${navList.length * 100 + 100}ms`
+                      : "0ms",
+                  }}
+                >
                   <div className="flex justify-center">
                     <ContactLink
                       Xlink="https://x.com/Fair3_community"
@@ -174,9 +186,7 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
       </header>
 
       {/* 主要内容 */}
-      <main className="min-h-screen">
-        {children}
-      </main>
+      <main className="min-h-screen">{children}</main>
 
       {/* 移动端页脚 */}
       <footer className="bg-white/80 backdrop-blur-sm border-t border-gray-200/30 mt-8">
@@ -189,7 +199,7 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
               © 2025 FAIR3 Community. All rights reserved.
             </div>
           </div>
-          
+
           <div className="mt-8">
             <h4 className="font-bold font-[Kodchasan] text-[20px] text-[#000] mb-6">
               Contact Us
@@ -207,7 +217,9 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
                     height={16}
                     alt="Telegram"
                   />
-                  <span className="text-[12px] text-[#000]">@ElaraFair3Community</span>
+                  <span className="text-[12px] text-[#000]">
+                    @ElaraFair3Community
+                  </span>
                 </Link>
                 <Link
                   href="https://t.me/KieranFair3Community"
@@ -220,11 +232,13 @@ function MobileLayout({ children }: { children: React.ReactNode }) {
                     height={16}
                     alt="Telegram"
                   />
-                  <span className="text-[12px] text-[#000]">@KieranFair3Community</span>
+                  <span className="text-[12px] text-[#000]">
+                    @KieranFair3Community
+                  </span>
                 </Link>
               </div>
             </div>
-            
+
             {/* 底部社交媒体图标 */}
             {/* <div className="flex gap-8 mt-8 pt-6 border-t border-gray-200/50">
               <Link href="https://x.com/Fair3_community" target="_blank">
@@ -294,8 +308,8 @@ function DesktopLayout({ children }: { children: React.ReactNode }) {
           "flex relative w-full h-[108px] justify-center text-[var(--normal-text-color)] bg-[var(--bg-header-color)] backdrop-blur-[3.8px] z-50"
         }
       >
-        <div className={"w-[1440px] flex justify-around items-center"}>
-          <Link href={"/"}>
+        <div className={"2xl:w-[1440px] flex justify-around items-center"}>
+          <Link href={"/"} className="shrink-0">
             <Image
               className={"mt-1"}
               src={"/images/header-logo.svg"}
@@ -306,6 +320,7 @@ function DesktopLayout({ children }: { children: React.ReactNode }) {
           </Link>
           <Nav />
           <ContactLink
+            className="shrink-0"
             Xlink={"https://x.com/Fair3_community"}
             telegramCNLink={"https://t.me/FAIR3_CTO_COMMUNITY"}
             githubLink={"https://github.com/FAIR3CTO/Fair-and-Free"}
@@ -317,9 +332,7 @@ function DesktopLayout({ children }: { children: React.ReactNode }) {
       <footer className="flex justify-center mt-[110px] pb-11">
         <div className="flex 2xl:w-[1440px] 2xl:mx-0 mx-24 w-full justify-between items-end text-[#353535] text-[15px] font-normal">
           <div>
-            <h3 className={"font-[Konkhmer Sleokchher] text-[48px]"}>
-              FAIR3
-            </h3>
+            <h3 className={"font-[Konkhmer Sleokchher] text-[48px]"}>FAIR3</h3>
             <div className={"mt-8"}>
               © 2025 FAIR3 Community. All rights reserved.
             </div>
@@ -388,7 +401,9 @@ export default function RootLayout({
   if (!mounted) {
     return (
       <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} ${kodchasan.variable} antialiased relative`}>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} ${kodchasan.variable} antialiased relative`}
+        >
           <div className="flex items-center justify-center min-h-screen">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#7c49ff]"></div>
           </div>
