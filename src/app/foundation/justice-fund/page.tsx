@@ -156,7 +156,7 @@ export default async function JusticeFundPage() {
         <div className={"flex justify-center gap-20 mt-16"}>
           {iconList.map((icon) => (
             <div key={icon.alt} className="flex items-center">
-              <div className="flex shrink-0 items-center justify-center w-[72px] h-[72px] mr-4 bg-[var(--main-color)] rounded-full">
+              <div className="flex shrink-0 items-center justify-center w-[72px] h-[72px] mr-4 bg-[#AE8DFF] rounded-full">
                 <Image
                   src={icon.image}
                   width={icon.width}

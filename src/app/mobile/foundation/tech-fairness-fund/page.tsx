@@ -11,22 +11,22 @@ import { Projects } from "../../foundation/tech-fairness-fund/projects";
 
 const imageList = [
   {
-    src: "/images/fairness-fund/image1.png",
+    src: "/images/fairness-fund/image1.svg",
     alt: "Image 1",
     desc: "Milestone-based grants for open-source and Web3 developers",
   },
   {
-    src: "/images/fairness-fund/image2.png",
+    src: "/images/fairness-fund/image2.svg",
     alt: "Image 2",
     desc: "Focus on innovation in AI and blockchain",
   },
   {
-    src: "/images/fairness-fund/image3.png",
+    src: "/images/fairness-fund/image3.svg",
     alt: "Image 3",
     desc: "Encouraging fairness in technology development",
   },
   {
-    src: "/images/fairness-fund/image4.png",
+    src: "/images/fairness-fund/image4.svg",
     alt: "Image 4",
     desc: "Supporting the creation of transparent, inclusive digital tools",
   },
