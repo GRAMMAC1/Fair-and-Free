@@ -464,7 +464,7 @@ export default function MobilePage() {
         <div className="absolute flex gap-2.5 top-[-160px] left-[150px]">
           <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
             <Image
-              src={"/images/cto.svg"}
+              src={"/images/memo.svg"}
               width={30}
               height={30}
               alt="cto"
@@ -533,7 +533,7 @@ export default function MobilePage() {
         <div className="absolute flex gap-2.5 top-[20px] left-[170px]">
           <div className="flex shrink-0 w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
             <Image
-              src={"/images/fair3.png"}
+              src={"/images/fair3.svg"}
               width={30}
               height={30}
               alt="Fair3 new brand launch"
