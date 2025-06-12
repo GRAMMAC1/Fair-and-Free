@@ -194,7 +194,7 @@ const mileStones = [
     title: "Web3 rap <Fight For Fair> is launched",
     date: "03/29/2025",
     top: 65,
-    left: 465,
+    left: 410,
     image: {
       src: "/images/celebrate.svg",
       width: 30,
@@ -218,7 +218,7 @@ const mileStones = [
     top: 100,
     left: 700,
     image: {
-      src: "/images/cto.svg",
+      src: "/images/memo.svg",
       width: 30,
       height: 30,
     },
@@ -251,7 +251,7 @@ const mileStones = [
     top: -10,
     left: 1100,
     image: {
-      src: "/images/fair3.png",
+      src: "/images/fair3.svg",
       width: 30,
       height: 30,
     },
