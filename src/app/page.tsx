@@ -156,6 +156,108 @@ const blockChainList: Array<{
   },
 ];
 
+const mileStones = [
+  {
+    title: "Community Take Over(CTO)",
+    date: "02/10/2025",
+    top: -40,
+    left: -30,
+    image: {
+      src: "/images/takeover.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "WangXin joins the CTO Team",
+    date: "02/14/2025",
+    top: 40,
+    left: 120,
+    image: {
+      src: "/images/cto.svg",
+      width: 30,
+      height: 28,
+    },
+  },
+  {
+    title: "Migrated To BNB Chain",
+    date: "03/19/2025",
+    top: -55,
+    left: 290,
+    image: {
+      src: "/images/chain.svg",
+      width: 30,
+      height: 28,
+    },
+  },
+  {
+    title: "Web3 rap <Fight For Fair> is launched",
+    date: "03/29/2025",
+    top: 65,
+    left: 465,
+    image: {
+      src: "/images/celebrate.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "Listing on Binance Alpha",
+    date: "04/09/2025",
+    top: -30,
+    left: 580,
+    image: {
+      src: "/images/chain.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "Four.meme Join the CTO Team",
+    date: "04/09/2025",
+    top: 100,
+    left: 700,
+    image: {
+      src: "/images/cto.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "Bitget VOXEL Event Airdrop",
+    date: "04/16/2025",
+    top: 5,
+    left: 845,
+    image: {
+      src: "/images/airdrop.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "JD Takeout Incident Airdrop",
+    date: "04/18/2025",
+    top: 110,
+    left: 1000,
+    image: {
+      src: "/images/airdrop.svg",
+      width: 30,
+      height: 30,
+    },
+  },
+  {
+    title: "Fair3 new brand launch",
+    date: "06/08/2025",
+    top: -10,
+    left: 1100,
+    image: {
+      src: "/images/fair3.png",
+      width: 30,
+      height: 30,
+    },
+  },
+] as const;
+
 export default function Home() {
   const [ready, setReady] = useState(false);
   const { data } = useSWR<EventResponse>(`/event/gethomeEvents`, fetcher);
@@ -273,7 +375,7 @@ export default function Home() {
             Fair3 Foundation creates a dynamic ecosystem where every individual
             and every idea has a platform to thrive.
           </p>
-          <div className="w-full flex flex-nowrap gap-24 mt-16 justify-center">
+          <div className="w-full flex 2xl:flex-nowrap flex-wrap gap-24 mt-16 justify-center">
             {iconList.map(({ title, content, image }) => {
               return (
                 <div key={title} className="flex items-center">
@@ -297,15 +399,12 @@ export default function Home() {
           </div>
           <div className="w-full flex justify-center gap-24 mt-40">
             <div className="flex flex-1 flex-col items-center">
-              <div className="w-[567px] h-[309px] relative shrink-0">
-                <Image
-                  src={"/images/justice-fund.png"}
-                  width={567}
-                  height={309}
-                  className="object-cover"
-                  alt={"justice fund"}
-                />
-              </div>
+              <Image
+                src={"/images/justice-fund.png"}
+                width={567}
+                height={309}
+                alt={"justice fund"}
+              />
               <h3
                 className={cn(
                   titleStyle({ font: "Inter" }),
@@ -330,15 +429,12 @@ export default function Home() {
               </Button>
             </div>
             <div className="flex flex-1 flex-col items-center">
-              <div className="w-[548px] h-[309px] relative">
-                <Image
-                  src={"/images/fairness-fund.png"}
-                  width={548}
-                  height={309}
-                  className="object-cover"
-                  alt={"fairness fund"}
-                />
-              </div>
+              <Image
+                src={"/images/fairness-fund.png"}
+                width={548}
+                height={309}
+                alt={"fairness fund"}
+              />
               <h3
                 className={cn(
                   titleStyle({ font: "Inter" }),
@@ -364,228 +460,64 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="w-[1440px] flex justify-center relative mt-[170px]">
-            <div
-              className={
-                "w-full h-[100px] bg-[url(/images/wave.svg)] bg-repeat-round"
-              }
-            ></div>
-            <div className={"absolute flex gap-2.5 top-[-20px] left-[40px]"}>
-              <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
-                <Image
-                  src={"/images/takeover.svg"}
-                  width={30}
-                  height={28}
-                  alt="Community Take Over"
-                />
+        </div>
+        <div className="w-full mx-24 h-[100px] mt-[170px]">
+          <div
+            className={
+              "w-[1200px] h-full bg-[url(/images/wave.svg)] bg-no-repeat relative mx-auto"
+            }
+          >
+            {mileStones.map((item) => (
+              <div
+                key={item.title}
+                style={{ left: item.left, top: item.top }}
+                className={cn("absolute flex gap-2.5")}
+              >
+                <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center shrink-0">
+                  <Image
+                    src={item.image.src}
+                    width={item.image.width}
+                    height={item.image.height}
+                    alt={item.title}
+                  />
+                </div>
+                <div>
+                  <h1
+                    className={cn(
+                      titleStyle({ font: "kodchasan" }),
+                      "text-[15px] w-[200px]"
+                    )}
+                  >
+                    {item.title}
+                  </h1>
+                  <p className={cn(normalTextStyle(), "mt-2.5")}>{item.date}</p>
+                </div>
               </div>
-              <div>
-                <h1
-                  className={cn(
-                    titleStyle({ font: "kodchasan" }),
-                    "text-[15px]"
-                  )}
-                >
-                  Community Take Over(CTO)
-                </h1>
-                <p className={cn(normalTextStyle(), "mt-2.5")}>02/10/2025</p>
-              </div>
-            </div>
-            <div className="absolute flex gap-2.5 top-[60px] left-[150px]">
-              <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
-                <Image
-                  src={"/images/cto.svg"}
-                  width={30}
-                  height={28}
-                  alt="cto"
-                />
-              </div>
-              <div>
-                <h1
-                  className={cn(
-                    titleStyle({ font: "kodchasan" }),
-                    "text-[15px]"
-                  )}
-                >
-                  WangXin joins the CTO Team
-                </h1>
-                <p className={cn(normalTextStyle(), "mt-2.5")}>02/14/2025</p>
-              </div>
-            </div>
-            <div className="absolute flex gap-2.5 top-[-55px] left-[330px]">
-              <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
-                <Image
-                  src={"/images/chain.svg"}
-                  width={30}
-                  height={28}
-                  alt="cto"
-                />
-              </div>
-              <div>
-                <h1
-                  className={cn(
-                    titleStyle({ font: "kodchasan" }),
-                    "text-[15px]"
-                  )}
-                >
-                  Migrated To BNB Chain
-                </h1>
-                <p className={cn(normalTextStyle(), "mt-2.5")}>03/19/2025</p>
-              </div>
-            </div>
-            <div className="absolute flex gap-2.5 top-[65px] left-[465px]">
-              <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
-                <Image
-                  src={"/images/celebrate.svg"}
-                  width={30}
-                  height={30}
-                  alt="Web3 rap"
-                />
-              </div>
-              <div>
-                <h1
-                  className={cn(
-                    titleStyle({ font: "kodchasan" }),
-                    "text-[15px] w-[200px]"
-                  )}
-                >
-                  {"Web3 rap <Fight For Fair> is launched"}
-                </h1>
-                <p className={cn(normalTextStyle(), "mt-2.5")}>03/29/2025</p>
-              </div>
-            </div>
-            <div className="absolute flex gap-2.5 top-[-30px] left-[620px]">
-              <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
-                <Image
-                  src={"/images/chain.svg"}
-                  width={30}
-                  height={30}
-                  alt="Listing on Binance Alpha"
-                />
-              </div>
-              <div>
-                <h1
-                  className={cn(
-                    titleStyle({ font: "kodchasan" }),
-                    "text-[15px]"
-                  )}
-                >
-                  Listing on Binance Alpha
-                </h1>
-                <p className={cn(normalTextStyle(), "mt-2.5")}>04/09/2025</p>
-              </div>
-            </div>
-            <div className="absolute flex gap-2.5 top-[100px] left-[740px]">
-              <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
-                <Image
-                  src={"/images/cto.svg"}
-                  width={30}
-                  height={30}
-                  alt="cto"
-                  quality={100}
-                />
-              </div>
-              <div>
-                <h1
-                  className={cn(
-                    titleStyle({ font: "kodchasan" }),
-                    "text-[15px]"
-                  )}
-                >
-                  Four.meme Join the CTO Team
-                </h1>
-                <p className={cn(normalTextStyle(), "mt-2.5")}>04/09/2025</p>
-              </div>
-            </div>
-            <div className="absolute flex gap-2.5 top-[15px] left-[860px]">
-              <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
-                <Image
-                  src={"/images/airdrop.svg"}
-                  width={30}
-                  height={30}
-                  alt="Bitget VOXEL Event Airdrop"
-                  quality={100}
-                />
-              </div>
-              <div>
-                <h1
-                  className={cn(
-                    titleStyle({ font: "kodchasan" }),
-                    "text-[15px]"
-                  )}
-                >
-                  Bitget VOXEL Event Airdrop
-                </h1>
-                <p className={cn(normalTextStyle(), "mt-2.5")}>04/21/2025</p>
-              </div>
-            </div>
-            <div className="absolute flex gap-2.5 top-[110px] left-[1050px]">
-              <div className="flex w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
-                <Image
-                  src={"/images/airdrop.svg"}
-                  width={30}
-                  height={30}
-                  alt="JD Takeout Incident Airdrop"
-                  quality={100}
-                />
-              </div>
-              <div>
-                <h1
-                  className={cn(
-                    titleStyle({ font: "kodchasan" }),
-                    "text-[15px]"
-                  )}
-                >
-                  JD Takeout Incident Airdrop
-                </h1>
-                <p className={cn(normalTextStyle(), "mt-2.5")}>04/23/2025</p>
-              </div>
-            </div>
-            <div className="absolute flex gap-2.5 top-0 left-[1145px]">
-              <div className="flex shrink-0 w-[48px] h-[48px] rounded-full bg-[var(--main-color)] items-center justify-center">
-                <Image
-                  src={"/images/fair3.png"}
-                  width={30}
-                  height={30}
-                  alt="Fair3 new brand launch"
-                />
-              </div>
-              <div>
-                <h1
-                  className={cn(
-                    titleStyle({ font: "kodchasan" }),
-                    "text-[15px]"
-                  )}
-                >
-                  Fair3 new brand launch
-                </h1>
-                <p className={cn(normalTextStyle(), "mt-2.5")}>06/08/2025</p>
-              </div>
-            </div>
+            ))}
           </div>
-          <div className="flex flex-col items-center mt-36">
-            <h1 className={cn(titleStyle({ font: "kodchasan" }))}>
-              BUY $FAIR3 TODAY
-            </h1>
-            <p className={cn(normalTextStyle(), "mt-3.5 max-w-3xl")}>
-              LEGAL DISCLAIMER: $FAIR3 is a crypto coin with no intrinsic value
-              or expectation of financial return.  this website provides general
-              information only and does not constitute personalized financial,
-              investment, or legal advice.
-            </p>
-            <div className="flex justify-center gap-16 mt-10">
-              {companyIconList.map((icon) => (
-                <Link
-                  href={icon.link}
-                  target="_blank"
-                  key={icon.name}
-                  className="flex gap-4 justify-center items-center"
-                >
-                  <Image src={icon.src} width={30} height={30} alt={icon.alt} />
-                  <p className={normalTextStyle()}>{icon.name}</p>
-                </Link>
-              ))}
-            </div>
+        </div>
+        <div className="flex flex-col items-center mt-36">
+          <h1 className={cn(titleStyle({ font: "kodchasan" }))}>
+            BUY $FAIR3 TODAY
+          </h1>
+          <p className={cn(normalTextStyle(), "mt-3.5 max-w-3xl")}>
+            LEGAL DISCLAIMER: $FAIR3 is a crypto coin with no intrinsic value or
+            expectation of financial return.  this website provides general
+            information only and does not constitute personalized financial,
+            investment, or legal advice.
+          </p>
+          <div className="flex justify-center gap-16 mt-10">
+            {companyIconList.map((icon) => (
+              <Link
+                href={icon.link}
+                target="_blank"
+                key={icon.name}
+                className="flex gap-4 justify-center items-center"
+              >
+                <Image src={icon.src} width={30} height={30} alt={icon.alt} />
+                <p className={normalTextStyle()}>{icon.name}</p>
+              </Link>
+            ))}
           </div>
         </div>
         <div className="flex w-full justify-center mt-24">

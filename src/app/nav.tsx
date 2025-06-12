@@ -12,6 +12,7 @@ import {
   NavigationMenuTrigger,
   NavigationMenuContent,
 } from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
 import "./nav.css";
 
@@ -80,7 +81,7 @@ export default function Nav() {
       return (
         <NavigationMenuItem
           key={item.name}
-          className={menuItemStyles({ isActive: active })}
+          className={cn(menuItemStyles({ isActive: active }), "p-0")}
         >
           <NavigationMenuTrigger className={triggerStyles()}>
             {item.isLink ? (
@@ -117,11 +118,11 @@ export default function Nav() {
     return (
       <NavigationMenuItem
         key={item.name}
-        className={menuItemStyles({ isActive: active })}
+        className={cn(menuItemStyles({ isActive: active }), "p-0")}
       >
         <NavigationMenuLink
           asChild
-          className="rounded-[40px] hover:bg-[#9871FF] hover:text-white"
+          className="rounded-[40px] hover:bg-[#9871FF] hover:text-white text-[16px]"
         >
           <Link href={item.href} className="no-underline py-2 px-4">
             {item.name}

@@ -305,10 +305,10 @@ function DesktopLayout({ children }: { children: React.ReactNode }) {
       />
       <header
         className={
-          "flex relative w-full h-[108px] justify-center text-[var(--normal-text-color)] bg-[var(--bg-header-color)] backdrop-blur-[3.8px] z-50"
+          "flex relative w-full h-[108px] 2xl:justify-center 2xl:px-0 px-24 text-[var(--normal-text-color)] bg-[var(--bg-header-color)] backdrop-blur-[3.8px] z-50"
         }
       >
-        <div className={"2xl:w-[1440px] flex justify-around items-center"}>
+        <div className={"2xl:w-[1440px] w-full flex justify-between items-center"}>
           <Link href={"/"} className="shrink-0">
             <Image
               className={"mt-1"}

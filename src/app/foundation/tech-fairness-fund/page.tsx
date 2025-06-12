@@ -12,22 +12,22 @@ import { Projects } from "./projects";
 
 const imageList = [
   {
-    src: "/images/fairness-fund/image1.png",
+    src: "/images/fairness-fund/image1.svg",
     alt: "Image 1",
     desc: "Milestone-based grants for open-source and Web3 developers",
   },
   {
-    src: "/images/fairness-fund/image2.png",
+    src: "/images/fairness-fund/image2.svg",
     alt: "Image 2",
     desc: "Focus on innovation in AI and blockchain",
   },
   {
-    src: "/images/fairness-fund/image3.png",
+    src: "/images/fairness-fund/image3.svg",
     alt: "Image 3",
     desc: "Encouraging fairness in technology development",
   },
   {
-    src: "/images/fairness-fund/image4.png",
+    src: "/images/fairness-fund/image4.svg",
     alt: "Image 4",
     desc: "Supporting the creation of transparent, inclusive digital tools",
   },
@@ -188,7 +188,9 @@ export default async function TechFairnessFundPage() {
         <div className={"flex gap-20 mt-16 justify-around"}>
           {imageList.map((image) => (
             <div key={image.alt} className="flex flex-col items-center">
-              <Image src={image.src} width={240} height={139} alt={image.alt} />
+              <div className="flex w-[70px] h-[70px] bg-[#AE8DFF] items-center justify-center rounded-full">
+                <Image src={image.src} width={40} height={40} alt={image.alt} />
+              </div>
               <p
                 className={cn(normalTextStyle(), "w-[240px] mt-3 text-center")}
               >
@@ -223,7 +225,13 @@ export default async function TechFairnessFundPage() {
           <div>
             {missionImage.map((item) => (
               <div key={item.alt} className="flex mb-10 mt-10 first:mt-0">
-                <Image src={item.src} width={192} height={116} alt={item.alt} />
+                <Image
+                  className="self-center"
+                  src={item.src}
+                  width={192}
+                  height={116}
+                  alt={item.alt}
+                />
                 <div className="ml-6">
                   <h2
                     className={cn(titleStyle({ font: "Inter" }), "text-[20px]")}
@@ -249,16 +257,10 @@ export default async function TechFairnessFundPage() {
             <div key={icon.alt} className="flex flex-col items-center">
               <div
                 className={
-                  "flex items-center justify-center w-[70px] h-[70px] rounded-full bg-[var(--main-color)] mb-3"
+                  "flex items-center justify-center w-[70px] h-[70px] rounded-full bg-[#AE8DFF] mb-3"
                 }
               >
-                <Image
-                  quality={100}
-                  src={icon.src}
-                  width={36}
-                  height={36}
-                  alt={icon.alt}
-                />
+                <Image src={icon.src} width={36} height={36} alt={icon.alt} />
               </div>
               <p className={cn(normalTextStyle(), "text-center")}>
                 {icon.desc}
@@ -297,7 +299,7 @@ export default async function TechFairnessFundPage() {
           fairness. This financial support will enable the most impactful
           innovations to take root and grow.
         </p>
-        <div className="flex pl-12 pr-10 py-10 justify-between items-center mt-14 border-solid border-[#000] border-[1px] rounded-[10px]">
+        <div className="flex pl-12 pr-10 py-10 justify-between items-center mt-14 border-solid border-[#C091FF] border-[1px] rounded-[40px] bg-[#F0ECFF]">
           <div className="flex gap-9">
             <Image
               src={"/images/fairness-fund/apply.png"}
