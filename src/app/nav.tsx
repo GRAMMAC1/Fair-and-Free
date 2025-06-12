@@ -24,17 +24,6 @@ interface NavItem {
 }
 
 const navList: NavItem[] = [
-  {
-    name: "Hackathon",
-    href: "/hackathon",
-    isLink: true,
-    children: [
-      {
-        name: "projects",
-        href: "/hackathon/projects",
-      },
-    ],
-  },
   { name: "Events", href: "/foundation/justice-fund/events" },
   { name: "Declaration", href: "/declaration" },
   {
@@ -47,6 +36,30 @@ const navList: NavItem[] = [
   },
   { name: "About", href: "/about" },
 ];
+
+function getNavList() {
+  const now = new Date();
+  const nextWednesday = new Date("2025-06-18");
+
+  if (
+    now >= nextWednesday &&
+    !navList.find((item) => item.name === "Hackathon")
+  ) {
+    navList.unshift({
+      name: "Hackathon",
+      href: "/hackathon",
+      isLink: true,
+      children: [
+        {
+          name: "projects",
+          href: "/hackathon/projects",
+        },
+      ],
+    });
+  }
+
+  return navList;
+}
 
 // 样式变体
 const menuItemStyles = cva(
@@ -135,7 +148,7 @@ export default function Nav() {
   return (
     <NavigationMenu viewport={false}>
       <NavigationMenuList className="flex 2xl:gap-6 gap-0 text-[16px] font-normal">
-        {navList.map(renderNavItem)}
+        {getNavList().map(renderNavItem)}
       </NavigationMenuList>
     </NavigationMenu>
   );
