@@ -121,7 +121,7 @@ export default function Nav() {
       >
         <NavigationMenuLink
           asChild
-          className="rounded-[40px] hover:bg-[#9871FF] hover:text-white"
+          className="rounded-[40px] hover:bg-[#9871FF] hover:text-white text-[16px]"
         >
           <Link href={item.href} className="no-underline py-2 px-4">
             {item.name}
