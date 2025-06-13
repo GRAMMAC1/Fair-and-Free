@@ -60,17 +60,20 @@ export default function ProjectPage() {
           Projects
         </h1>
         <div className="flex gap-6 flex-wrap mt-8">
-          {projectList.slice(0, count).map((project) => (
-            <ProjectCard
-              key={project.id}
-              id={project.id}
-              title={project.projectName}
-              oneLiner={project.oneLiner}
-              githubLink={project.githubLink}
-              twitterLink={project.twitterLink}
-              telegramLink={project.telegramLink}
-            />
-          ))}
+          {projectList
+            .filter((project) => project.enable)
+            .slice(0, count)
+            .map((project) => (
+              <ProjectCard
+                key={project.id}
+                id={project.id}
+                title={project.projectName}
+                oneLiner={project.oneLiner}
+                githubLink={project.githubLink}
+                twitterLink={project.twitterLink}
+                telegramLink={project.telegramLink}
+              />
+            ))}
         </div>
         <div className="flex flex-col items-center justify-center mt-8 text-center">
           <span

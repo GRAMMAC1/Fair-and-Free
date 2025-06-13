@@ -28,25 +28,33 @@ function MobileEventCard({
     <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50 hover:shadow-lg transition-all duration-200">
       <Link href={`/foundation/justice-fund/${id}`}>
         <div className="w-full h-48 relative mb-4 rounded-lg overflow-hidden">
-          <Image
-            src={src}
-            fill
-            className="object-cover"
-            alt={title}
-          />
+          <Image src={src} fill className="object-cover" alt={title} />
         </div>
       </Link>
-      <h3 className={cn(titleStyle({ font: "kodchasan" }), "text-[16px] font-bold mb-2 line-clamp-2")}>
+      <h3
+        className={cn(
+          titleStyle({ font: "kodchasan" }),
+          "text-[16px] font-bold mb-2 line-clamp-2"
+        )}
+      >
         {title}
       </h3>
-      <p className={cn(normalTextStyle(), "text-[13px] text-[#64636A] leading-relaxed line-clamp-3 mb-4")}>
+      <p
+        className={cn(
+          normalTextStyle(),
+          "text-[13px] text-[#64636A] leading-relaxed line-clamp-3 mb-4"
+        )}
+      >
         {description}
       </p>
       <Button
         variant="outline"
         className="w-full rounded-lg border-[#9971FF] text-[#9971FF] hover:bg-[#9971FF]/10"
       >
-        <Link href={`/foundation/justice-fund/${id}`} className="text-[13px] font-medium">
+        <Link
+          href={`/foundation/justice-fund/${id}`}
+          className="text-[13px] font-medium"
+        >
           View Details
         </Link>
       </Button>
@@ -95,15 +103,18 @@ export default function MobileEventsPage() {
           ) : (
             <>
               <div className="space-y-6">
-                {events.slice(0, count).map((event) => (
-                  <MobileEventCard
-                    key={event.id}
-                    id={event.id}
-                    src={event.cover}
-                    title={event.title}
-                    description={event.description}
-                  />
-                ))}
+                {events
+                  .filter((event) => event.enable)
+                  .slice(0, count)
+                  .map((event) => (
+                    <MobileEventCard
+                      key={event.id}
+                      id={event.id}
+                      src={event.cover}
+                      title={event.title}
+                      description={event.description}
+                    />
+                  ))}
               </div>
 
               {count < events.length && (

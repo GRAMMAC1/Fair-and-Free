@@ -38,8 +38,6 @@ export default function EventPage() {
 
   const { data: events = [] } = data || {};
 
-  console.log("Events data:", data);
-
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden min-h-[500px]">
       <BackgroundBlur
@@ -52,15 +50,18 @@ export default function EventPage() {
           Events
         </h1>
         <div className="flex flex-col gap-10 mt-10">
-          {events.slice(0, count).map((event) => (
-            <EventListItem
-              key={event.id}
-              id={event.id}
-              src={event.cover}
-              title={event.title}
-              description={event.description}
-            />
-          ))}
+          {events
+            .filter((event) => event.enable)
+            .slice(0, count)
+            .map((event) => (
+              <EventListItem
+                key={event.id}
+                id={event.id}
+                src={event.cover}
+                title={event.title}
+                description={event.description}
+              />
+            ))}
         </div>
         <div className="flex flex-col items-center justify-center mt-8 text-center">
           {events.length > 0 && (
