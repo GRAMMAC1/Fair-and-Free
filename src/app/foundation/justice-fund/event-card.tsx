@@ -62,7 +62,8 @@ export function EventCard({
   };
 
   return (
-    <div
+    <Link
+      href={`/foundation/justice-fund/${id}`}
       style={{
         border: "1px solid var(--card-border-color)",
       }}
@@ -70,14 +71,12 @@ export function EventCard({
       onMouseLeave={handleMouseLeave}
       className={style({ show })}
     >
-      <Link href={`/foundation/justice-fund/${id}`}>
-        <Image src={src} width={240} height={134} alt={"event cover pic"} />
-      </Link>
+      <Image src={src} width={240} height={134} alt={"event cover pic"} />
       <h1 className={"font-[Inter] font-extrabold text-[16px] mt-4"}>
         {title}
       </h1>
       {renderDescription()}
-    </div>
+    </Link>
   );
 }
 

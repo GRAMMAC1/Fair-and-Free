@@ -27,18 +27,20 @@ export default async function ProjectsPage() {
         Projects
       </h1>
       <div className={"w-full mt-8 flex flex-wrap gap-[50px]"}>
-        {projectList.map((project) => (
-          <ProjectsCard
-            key={project.id}
-            title={project.projectName}
-            cover={project.cover}
-            creator={project.creator}
-            oneLiner={project.oneLiner}
-            xLink={project.twitterLink}
-            githubLink={project.githubLink}
-            telegramLink={project.telegramLink}
-          />
-        ))}
+        {projectList
+          .filter((project) => project.enable)
+          .map((project) => (
+            <ProjectsCard
+              key={project.id}
+              title={project.projectName}
+              cover={project.cover}
+              creator={project.creator}
+              oneLiner={project.oneLiner}
+              xLink={project.twitterLink}
+              githubLink={project.githubLink}
+              telegramLink={project.telegramLink}
+            />
+          ))}
       </div>
     </div>
   );
