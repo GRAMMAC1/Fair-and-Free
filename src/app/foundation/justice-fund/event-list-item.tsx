@@ -29,7 +29,7 @@ export function EventListItem({
         src={src}
         alt="event cover image"
       />
-      <div className="flex flex-col justify-between">
+      <div className="flex flex-col justify-between mr-7">
         <div>
           <h1 className={cn(titleStyle({ font: "kodchasan" }), "text-[20px]")}>
             {title}

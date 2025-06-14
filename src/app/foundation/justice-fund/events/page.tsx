@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import useSWR from "swr";
+import { toast } from "sonner";
 
 import { BackgroundBlur } from "@/shared/background-blur";
 import { titleStyle } from "@/shared/styles";
@@ -10,6 +11,8 @@ import { cn } from "@/lib/utils";
 import { EventListItem } from "../event-list-item";
 import { fetcher } from "@/shared/fetcher";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Toaster } from "@/components/ui/sonner";
+
 import type { EventResponse } from "@/shared/types";
 
 export default function EventPage() {
@@ -38,8 +41,20 @@ export default function EventPage() {
 
   const { data: events = [] } = data || {};
 
+  const viewMore = () => {
+    setCount((prev) => {
+      if (prev >= events.length) {
+        toast.warning("No more events");
+        return prev;
+      }
+
+      return prev + 4;
+    });
+  };
+
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden min-h-[500px]">
+      <Toaster position={"top-center"} />
       <BackgroundBlur
         top={-525}
         right={-115}
@@ -70,7 +85,7 @@ export default function EventPage() {
                 titleStyle({ font: "kodchasan" }),
                 "flex flex-col items-center cursor-pointer text-[20px]"
               )}
-              onClick={() => setCount((prev) => prev + 4)}
+              onClick={viewMore}
             >
               View More <ChevronDown className="mt-1" size={14} />
             </span>

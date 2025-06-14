@@ -2,6 +2,7 @@
 import useSWR from "swr";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
 import { BackgroundBlur } from "@/shared/background-blur";
@@ -9,11 +10,12 @@ import { titleStyle } from "@/shared/styles";
 import { ProjectCard } from "../project-card";
 import { fetcher } from "@/shared/fetcher";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Toaster } from "@/components/ui/sonner";
 
 import type { ProjectResponse } from "@/shared/types";
 
 export default function ProjectPage() {
-  const [count, setCounet] = useState(12);
+  const [count, setCount] = useState(12);
   const { data, isLoading } = useSWR<ProjectResponse>(
     "/projects/getAllProjects",
     fetcher
@@ -48,8 +50,20 @@ export default function ProjectPage() {
 
   const { data: projectList = [] } = data || {};
 
+  const viewMore = () => {
+    setCount((prev) => {
+      if (prev >= projectList.length) {
+        toast.warning("No more projects");
+        return prev;
+      }
+
+      return prev + 12;
+    });
+  };
+
   return (
     <div className="flex flex-col items-center relative overflow-x-hidden min-h-[700px]">
+      <Toaster position={"top-center"} />
       <BackgroundBlur
         top={-525}
         right={-115}
@@ -81,7 +95,7 @@ export default function ProjectPage() {
               titleStyle({ font: "kodchasan" }),
               "flex flex-col items-center cursor-pointer text-[20px]"
             )}
-            onClick={() => setCounet((prev) => prev + 12)}
+            onClick={viewMore}
           >
             View More <ChevronDown className="mt-1" size={14} />
           </span>
