@@ -72,7 +72,12 @@ export function EventCard({
       className={style({ show })}
     >
       <Image src={src} width={240} height={134} alt={"event cover pic"} />
-      <h1 className={"font-[Inter] font-extrabold text-[16px] mt-4"}>
+      <h1
+        className={
+          "font-[Inter] font-extrabold text-[16px] mt-4 overflow-hidden text-ellipsis line-clamp-2"
+        }
+        title={title}
+      >
         {title}
       </h1>
       {renderDescription()}
