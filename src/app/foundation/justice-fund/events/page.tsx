@@ -42,7 +42,6 @@ export default function EventPage() {
   const { data: events = [] } = data || {};
 
   const viewMore = () => {
-    console.log("view more", count);
     setCount((prev) => {
       if (prev >= events.length) {
         toast.warning("No more events");
