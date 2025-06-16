@@ -39,7 +39,7 @@ const navList: NavItem[] = [
 
 function getNavList() {
   const now = new Date();
-  const nextWednesday = new Date("2025-06-18");
+  const nextWednesday = new Date("2025-06-16");
 
   if (
     now >= nextWednesday &&

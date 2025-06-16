@@ -10,8 +10,8 @@ const style = cva(
   {
     variants: {
       show: {
-        true: "h-[290px]",
-        false: "h-[228px]",
+        true: "h-[316px]",
+        false: "h-[246px]",
       },
     },
   }
