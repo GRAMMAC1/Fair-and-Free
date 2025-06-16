@@ -33,7 +33,7 @@ const iconList = [
     },
   },
   {
-    title: "2.5M+",
+    title: "1.6M+",
     content: "Foundation Balance",
     image: {
       src: "/images/home-icon2.svg",
@@ -42,7 +42,7 @@ const iconList = [
     },
   },
   {
-    title: "5",
+    title: "7",
     content: "Partnership Projects",
     image: {
       src: "/images/home-icon3.svg",
@@ -51,7 +51,7 @@ const iconList = [
     },
   },
   {
-    title: "1.2M+",
+    title: "2.7M+",
     content: "Airdorp FAIR3",
     image: {
       src: "/images/home-icon4.svg",
