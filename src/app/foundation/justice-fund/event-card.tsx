@@ -71,7 +71,9 @@ export function EventCard({
       onMouseLeave={handleMouseLeave}
       className={style({ show })}
     >
-      <Image src={src} width={240} height={134} alt={"event cover pic"} />
+      <div className="w-[240px] h-[134px] shrink-0 relative">
+        <Image className="object-fill" fill src={src} alt={"event cover pic"} />
+      </div>
       <h1
         className={
           "font-[Inter] font-extrabold text-[16px] mt-4 overflow-hidden text-ellipsis line-clamp-2"
