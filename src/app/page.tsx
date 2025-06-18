@@ -14,6 +14,9 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { fetcher } from "@/shared/fetcher";
 
 import type { EventResponse } from "@/shared/types";
+import FOURMEME_IMG from "../../public/images/fourmeme.png";
+import BITGET_IMG from "../../public/images/bitget.png";
+import AMA_IMG from "../../public/images/ama.png";
 
 declare global {
   interface Window {
@@ -262,7 +265,36 @@ export default function Home() {
   const [ready, setReady] = useState(false);
   const { data } = useSWR<EventResponse>(`/event/gethomeEvents`, fetcher);
 
-  const { data: evevts = [] } = data || {};
+  // const { data: evevts = [] } = data || {};
+  const evevts = [
+    {
+      id: 1,
+      title: "Fair3 x Fourmeme: Meme for Justice, Fair for All",
+      description: `At Fair3, we believe that technology should be a tool for innovation, not a means for monopolies.`,
+      cover: FOURMEME_IMG,
+      enable: true,
+      selected: false,
+      homeSelected: true,
+    },
+    {
+      id: 2,
+      title: "FAlR3 Takes Action:50kEAIR3 Airdrop for Users Affected by Bitget Incident",
+      description: "At FAIR3, our mission is to champion fairness through technology. We don’t just preach these values—we act on them.",
+      cover: BITGET_IMG,
+      enable: true,
+      selected: true,
+      homeSelected: false,
+    },
+    {
+      id: 3,
+      title: "Who Owns Your Digital Memory?",
+      description: "A Fair3 AMA Recap: Digital Selves, AI Ethics, and the Reconfiguration of Power in Web3.",
+      cover: AMA_IMG,
+      enable: true,
+      selected: false,
+      homeSelected: true,
+    },
+  ]
 
   useEffect(() => {
     if (window.VANTA)
